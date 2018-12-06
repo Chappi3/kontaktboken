@@ -2,13 +2,13 @@ package domain;
 
 public class Contact {
     private String firstName;
-    private String lasttName;
+    private String lastName;
     private String phoneNumber;
     private String email;
 
     public Contact(String firstName, String lasttName, String phoneNumber, String email) {
         this.firstName = firstName;
-        this.lasttName = lasttName;
+        this.lastName = lasttName;
         this.phoneNumber = phoneNumber;
         this.email = email;
     }
@@ -44,11 +44,11 @@ public class Contact {
     }
 
     public String getLasttName() {
-        return lasttName;
+        return lastName;
     }
 
     public void setLasttName(String lasttName) {
-        this.lasttName = lasttName;
+        this.lastName = lasttName;
     }
 
     public String getPhoneNumber() {

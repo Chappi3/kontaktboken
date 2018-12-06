@@ -1,4 +1,9 @@
 package domain;
 
-public class ContactBook {
+import java.io.Serializable;
+
+public class ContactBook implements Serializable {
+
+    public static final long serialVersionUID = 748717L;
+
 }

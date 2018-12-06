@@ -4,9 +4,15 @@ import domain.ContactBook;
 import java.util.Scanner;
 
 public class Create {
-  Scanner sc = new Scanner(System.in);
+    private ContactBook contactBook;
 
-  Contact contact = new Contact();
+    public Create(ContactBook contactBook) {
+        this.contactBook = contactBook;
+    }
+
+    Scanner sc = new Scanner(System.in);
+
+    Contact contact = new Contact();
 
   System.out.println("Enter first name: ");
   contact.setFirstName(sc.nextLine());

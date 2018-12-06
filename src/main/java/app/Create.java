@@ -4,24 +4,25 @@ import domain.ContactBook;
 import java.util.Scanner;
 
 public class Create {
-    private ContactBook contactBook;
 
-    public Create(ContactBook contactBook) {
-        this.contactBook = contactBook;
+    public void createContact() {
+        // ContactBook contactBook = new ContactBook();
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("First name: ");
+        String name = sc.nextLine();
+
+        System.out.println("Last name: ");
+        String lastName = sc.nextLine();
+
+        System.out.println("Phone number: ");
+        String phone = sc.nextLine();
+
+        System.out.println("Email: ");
+        String mail = sc.nextLine();
+
+        Contact contact = new Contact(name, lastName, phone, mail);
+
+        getContactBook.add(contact);
     }
-
-    Scanner sc = new Scanner(System.in);
-
-    Contact contact = new Contact();
-
-  System.out.println("Enter first name: ");
-  contact.setFirstName(sc.nextLine());
-
-  System.out.println("Enter last name: ");
-  contact.setLastName(sc.nextLine());
-  System.out.println("Enter phone number: ");
-  contact.setPhoneNumber(sc.nextLine());
-  System.out.println("Enter email: ");
-  contact.setEmail(sc.nextLine());
-
 }

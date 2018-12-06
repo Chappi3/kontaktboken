@@ -5,8 +5,7 @@ import java.util.Scanner;
 
 public class Create {
 
-    public void createContact() {
-        // ContactBook contactBook = new ContactBook();
+    public void createContact(ContactBook contactBook) {
 
         Scanner sc = new Scanner(System.in);
         System.out.println("First name: ");
@@ -22,7 +21,6 @@ public class Create {
         String mail = sc.nextLine();
 
         Contact contact = new Contact(name, lastName, phone, mail);
-
-        getContactBook.add(contact);
+        contactBook.getContactBook().add(contact);
     }
 }

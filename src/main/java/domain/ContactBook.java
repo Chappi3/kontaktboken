@@ -8,4 +8,7 @@ public class ContactBook implements Serializable {
     private ArrayList<Contact> contactBook = new ArrayList<>();
     public static final long serialVersionUID = 748717L;
 
+    public ArrayList<Contact> getContactBook() {
+        return contactBook;
+    }
 }

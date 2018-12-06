@@ -35,7 +35,9 @@ public class Contact implements Serializable {
     }
     @Override
     public String toString() {
-        return getEmail();
+        return "Name: " + getFirstName() + ' ' + getLasttName() + '\n' +
+               "phone: " + getPhoneNumber() + '\n' +
+               "email: " + getEmail();
     }
 
     //Getters & Setters

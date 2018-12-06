@@ -1,7 +1,9 @@
 package app;
+import domain.Contact;
+import domain.ContactBook;
 import java.util.Scanner;
 
-public class Create() {
+public class Create {
   Scanner sc = new Scanner(System.in);
 
   Contact contact = new Contact();
@@ -12,7 +14,7 @@ public class Create() {
   System.out.println("Enter last name: ");
   contact.setLastName(sc.nextLine());
   System.out.println("Enter phone number: ");
-  contact.setPhoneNumber(sc.nextInt());
+  contact.setPhoneNumber(sc.nextLine());
   System.out.println("Enter email: ");
   contact.setEmail(sc.nextLine());
 

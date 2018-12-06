@@ -6,9 +6,9 @@ public class Contact {
     private String phoneNumber;
     private String email;
 
-    public Contact(String firstName, String lasttName, String phoneNumber, String email) {
+    public Contact(String firstName, String lastName, String phoneNumber, String email) {
         this.firstName = firstName;
-        this.lastName = lasttName;
+        this.lastName = lastName;
         this.phoneNumber = phoneNumber;
         this.email = email;
     }
@@ -32,7 +32,7 @@ public class Contact {
 
     @Override
     public String toString() {
-        return "Name: " + getFirstName() + ' ' + getLasttName() + '\n' +
+        return "Name: " + getFirstName() + ' ' + getLastName() + '\n' +
                "phone: " + getPhoneNumber() + '\n' +
                "email: " + getEmail();
     }
@@ -45,12 +45,12 @@ public class Contact {
         this.firstName = firstName;
     }
 
-    public String getLasttName() {
+    public String getLastName() {
         return lastName;
     }
 
-    public void setLasttName(String lasttName) {
-        this.lastName = lasttName;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getPhoneNumber() {

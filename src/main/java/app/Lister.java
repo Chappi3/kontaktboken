@@ -1,27 +1,33 @@
 package app;
 
+import domain.Contact;
+import domain.ContactBook;
+
 /**
- * List all contacts from contactbook
+ * List all contacts from contactBook
  *
  * @author Hjalmar
+ * @since 2018-12-06
  */
 public class Lister {
 
-    //private ContactBook contactBook;
+    private ContactBook contactBook;
 
     /**
      * Constructor
      */
-//    public Lister(ContactBook contactBook) {
-//        this.contactBook = contactBook;
-//    }
+    public Lister(ContactBook contactBook) {
+        this.contactBook = contactBook;
+    }
 
     /**
      * Print all contacts to console
      */
     public void list() {
-//        for (Contact contact : contactBook.getContacts()){
-//
-//        }
+        String format = "%-25s %-25s %-25s %-25s" + System.getProperty("line.separator");
+        System.out.printf(format, "First Name", "Last Name", "Phone", "Email");
+        for (Contact contact : contactBook.getContactBook()) {
+            System.out.printf(format, contact.getFirstName(), contact.getLastName(), contact.getPhoneNumber(), contact.getEmail());
+        }
     }
 }

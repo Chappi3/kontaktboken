@@ -32,7 +32,9 @@ public class Contact {
 
     @Override
     public String toString() {
-        return getEmail();
+        return "Name: " + getFirstName() + ' ' + getLasttName() + '\n' +
+               "phone: " + getPhoneNumber() + '\n' +
+               "email: " + getEmail();
     }
 
     public String getFirstName() {

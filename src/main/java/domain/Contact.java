@@ -1,5 +1,5 @@
 package domain;
-
+///testar jankins
 public class Contact {
     //Fields
     private String firstName;

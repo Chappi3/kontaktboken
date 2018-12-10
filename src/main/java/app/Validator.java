@@ -17,5 +17,11 @@ public class Validator {
         return false;
     }
 
-   
+    //Check emil (ex. "one.team@gmail.com")
+    public static boolean checkEmail(String input){
+        if(input.matches("[A-Za-z0-9.]{1,30}[@][a-z]{2,10}[.][a-z]{2,3}")){
+            return true;
+        }
+        return false;
+    }
 }

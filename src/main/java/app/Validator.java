@@ -9,5 +9,13 @@ public class Validator {
         return false;
     }
 
-    
+    //Check phone number (numbers only)
+    public static boolean checkPhoneNumber(String input){
+        if(input.matches("[0-9]{7,15}")){
+            return true;
+        }
+        return false;
+    }
+
+   
 }

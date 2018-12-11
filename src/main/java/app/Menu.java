@@ -8,8 +8,7 @@ public class Menu {
     String input = "";
 
     public void mainMenu(){
-//        int choise =
-                System.out.println("_______ MENU ________");
+        System.out.println("\n_______ MENU ________");
         System.out.println("1. Create contact    |");
         System.out.println("2. Edit contact      |");
         System.out.println("3. Delete contact    |");
@@ -20,7 +19,6 @@ public class Menu {
     }
 
     public String[] createMenu(){
-        System.out.println("\nCreate contact:");
         while(true){
             System.out.print("Name: ");
             input = sc.nextLine();
@@ -51,6 +49,14 @@ public class Menu {
         }
         String[] data = new String[]{firstName, lastName, phoneNumber, email};
         return data;
+    }
+
+    public String editMenu(){
+        return null;
+    }
+
+    public String deleteMenu(){
+        return null;
     }
 
 }

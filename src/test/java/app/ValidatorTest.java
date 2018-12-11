@@ -14,5 +14,13 @@ class ValidatorTest {
         assertEquals(result, true);
     }
 
+    @Test
+    void checkNotValidName() {
+        Validator validator = new Validator();
+        String name = "maks76";
+        boolean result = validator.checkName(name);
+        assertEquals(result, false);
+    }
+
 
 }

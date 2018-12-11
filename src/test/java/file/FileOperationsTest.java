@@ -10,8 +10,15 @@ import java.nio.file.Files;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Test file for File save and load
+ */
 class FileOperationsTest {
 
+    /**
+     * Test for save and load
+     * removes test file before and after
+     */
     @Test
     void saveToSerialized() {
         String fileName = "Serializedtestfile";

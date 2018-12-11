@@ -1,10 +1,13 @@
+import app.Create;
 import app.Menu;
 import domain.Contact;
+import domain.ContactBook;
 
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        ContactBook contactBook = new ContactBook();
         Menu menu = new Menu();
         Scanner sc = new Scanner(System.in);
         String choice = "";
@@ -15,18 +18,17 @@ public class Main {
             switch(choice){
                 case "1":
                     System.out.println("\n --Create contact--");
-                    menu.createMenu();
-                    //create
+                    Create.createContact(contactBook);
                     break;
                 case "2":
                     System.out.println("\n --Edit contact--");
-                    menu.editMenu();
-                    //edit
+//                    Edit.editContacts(contactBook);
+                    String[] data = new String[5];
+                    data = menu.editMenu(contactBook);
                     break;
                 case "3":
                     System.out.println("\n --Delete contact--");
-                    menu.deleteMenu();
-                    //delete
+//                    Delete.deleteContact(contactBook);
                     break;
                 case "4":
                     System.out.println("\n --Find contact--");
@@ -34,7 +36,7 @@ public class Main {
                     break;
                 case "5":
                     System.out.println("\n --Contacts--");
-                    //show all contacts
+//                    new Lister(contacts).list();
                     break;
                 default:
                     continue;

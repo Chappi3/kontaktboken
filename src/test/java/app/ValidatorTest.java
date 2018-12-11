@@ -38,5 +38,13 @@ class ValidatorTest {
         assertEquals(result, false);
     }
 
+    @Test
+    void checkValidEmail() {
+        Validator validator = new Validator();
+        String email = "maks.iths@gmail.com";
+        boolean result = validator.checkEmail(email);
+        assertEquals(result, true);
+    }
+
 
 }

@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class ValidatorTest {
-
     @Test
     void checkValidName() {
         Validator validator = new Validator();
@@ -13,7 +12,6 @@ class ValidatorTest {
         boolean result = validator.checkName(name);
         assertEquals(result, true);
     }
-
     @Test
     void checkNotValidName() {
         Validator validator = new Validator();
@@ -29,7 +27,6 @@ class ValidatorTest {
         boolean result = validator.checkPhoneNumber(phoneNumber);
         assertEquals(result, true);
     }
-
     @Test
     void checkNotValidPhoneNumber() {
         Validator validator = new Validator();
@@ -45,7 +42,6 @@ class ValidatorTest {
         boolean result = validator.checkEmail(email);
         assertEquals(result, true);
     }
-
     @Test
     void checkNotValidEmail() {
         Validator validator = new Validator();

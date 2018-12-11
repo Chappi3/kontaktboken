@@ -30,5 +30,13 @@ class ValidatorTest {
         assertEquals(result, true);
     }
 
+    @Test
+    void checkNotValidPhoneNumber() {
+        Validator validator = new Validator();
+        String phoneNumber = "7075aa";
+        boolean result = validator.checkPhoneNumber(phoneNumber);
+        assertEquals(result, false);
+    }
+
 
 }

@@ -1,6 +1,12 @@
 package domain;
+
+import java.io.Serializable;
+
 ///testar jankins
-public class Contact {
+public class Contact implements Serializable {
+
+    private static final long serialVersionUID = 6841681686311138743L;
+
     //Fields
     private String firstName;
     private String lastName;

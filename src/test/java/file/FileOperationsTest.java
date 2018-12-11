@@ -8,6 +8,8 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 class FileOperationsTest {
 
     @Test
@@ -35,6 +37,21 @@ class FileOperationsTest {
             e.printStackTrace();
         }
 
+        ContactBook loadedBook = null;
+        try {
+            loadedBook = FileOperations.loadFromSerialized(fileName);
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        assertNotNull(loadedBook);
+
+        assertEquals(contactBook.getContactBook().get(0), loadedBook.getContactBook().get(0));
+
+        try {
+            assertNull(FileOperations.loadFromSerialized("NonExistingFile"));
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
 
         if (file.exists()) {
             try {

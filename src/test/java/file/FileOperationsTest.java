@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class FileOperationsTest {
 
     /**
-     * Test for save and load
+     * Test serialized for save and load
      * removes test file before and after
      */
     @Test
@@ -57,6 +57,60 @@ class FileOperationsTest {
         try {
             assertNull(FileOperations.loadFromSerialized("NonExistingFile"));
         } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        if (file.exists()) {
+            try {
+                Files.delete(file.toPath());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    /**
+     * Test json for save and load
+     * removes test file before and after
+     */
+    @Test
+    void saveToJson() {
+        String fileName = "Jsontestfile.json";
+        File file = new File(fileName);
+        if (file.exists()) {
+            try {
+                Files.delete(file.toPath());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        String firstName = "first";
+        String lastName = "last";
+        String phone = "22222";
+        String email = "aaaa@aaa.com";
+
+        ContactBook contactBook = new ContactBook();
+        Contact contact = new Contact(firstName, lastName, phone, email);
+        contactBook.getContactBook().add(contact);
+        try {
+            FileOperations.saveToJson(fileName, contactBook);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        ContactBook loadedBook = null;
+        try {
+            loadedBook = FileOperations.loadFromJson(fileName);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        assertNotNull(loadedBook);
+
+        assertEquals(contactBook.getContactBook().get(0), loadedBook.getContactBook().get(0));
+
+        try {
+            assertNull(FileOperations.loadFromJson("NonExistingFile"));
+        } catch (IOException e) {
             e.printStackTrace();
         }
 

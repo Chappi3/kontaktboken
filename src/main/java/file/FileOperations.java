@@ -1,8 +1,12 @@
 package file;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import domain.ContactBook;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.util.stream.Collectors;
 
 /**
  * Class for loading and saving
@@ -45,5 +49,24 @@ public class FileOperations {
             oos.writeObject(contactBook);
         }
 
+    }
+
+    public static ContactBook loadFromJson(String fileName) throws IOException {
+        File file = new File(fileName);
+        if (!file.exists())
+            return null;
+
+        String jsonString = Files.lines(file.toPath()).collect(Collectors.joining());
+        Gson gson = new GsonBuilder().create();
+        return gson.fromJson(jsonString, ContactBook.class);
+    }
+
+    public static void saveToJson(String fileName, ContactBook contactBook) throws IOException {
+        File file = new File(fileName);
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        String jsonString = gson.toJson(contactBook);
+        try (FileOutputStream fos = new FileOutputStream(file); PrintWriter pw = new PrintWriter(fos)) {
+            pw.print(jsonString);
+        }
     }
 }

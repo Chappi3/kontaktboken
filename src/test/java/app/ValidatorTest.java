@@ -6,5 +6,13 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ValidatorTest {
 
+    @Test
+    void checkValidName() {
+        Validator validator = new Validator();
+        String name = "Maks";
+        boolean result = validator.checkName(name);
+        assertEquals(result, true);
+    }
+
 
 }

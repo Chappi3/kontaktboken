@@ -51,6 +51,13 @@ public class FileOperations {
 
     }
 
+    /**
+     * Load Contact book from json file
+     *
+     * @param fileName File name
+     * @return Loaded Contact book
+     * @throws IOException If error
+     */
     public static ContactBook loadFromJson(String fileName) throws IOException {
         File file = new File(fileName);
         if (!file.exists())
@@ -61,6 +68,13 @@ public class FileOperations {
         return gson.fromJson(jsonString, ContactBook.class);
     }
 
+    /**
+     * Save Contact book from json file
+     *
+     * @param fileName    File name
+     * @param contactBook Contact book to save
+     * @throws IOException If error
+     */
     public static void saveToJson(String fileName, ContactBook contactBook) throws IOException {
         File file = new File(fileName);
         Gson gson = new GsonBuilder().setPrettyPrinting().create();

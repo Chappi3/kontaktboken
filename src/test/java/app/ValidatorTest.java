@@ -3,6 +3,10 @@ package app;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
+/**
+ * @author Maksym Gorbunov
+ * @since 2018-12-12
+*/
 
 class ValidatorTest {
     @Test
@@ -19,7 +23,6 @@ class ValidatorTest {
         boolean result = validator.checkName(name);
         assertEquals(result, false);
     }
-
     @Test
     void checkValidPhoneNumber() {
         Validator validator = new Validator();
@@ -34,7 +37,6 @@ class ValidatorTest {
         boolean result = validator.checkPhoneNumber(phoneNumber);
         assertEquals(result, false);
     }
-
     @Test
     void checkValidEmail() {
         Validator validator = new Validator();

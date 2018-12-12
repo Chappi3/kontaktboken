@@ -1,5 +1,4 @@
 import app.Create;
-import app.Lister;
 import app.Menu;
 import domain.Contact;
 import domain.ContactBook;
@@ -38,10 +37,12 @@ public class Main {
                     break;
                 case "4":
                     System.out.println("\n --Find contact--");
-                    //find
+                    String find = menu.searchMenu();
+//                    Search.contains(find, contactBook);
+                    System.out.println(find);
                     break;
                 case "5":
-                    new Lister(contactBook).list();
+//                    Lister.list(contactBook);
                     break;
                 default:
                     continue;

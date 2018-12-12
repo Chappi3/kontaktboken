@@ -34,6 +34,7 @@ public class Main {
                 case "3":
                     System.out.println("\n --Delete contact--");
 //                    Delete.deleteContact(contactBook);
+                    menu.deleteMenu(contactBook);
                     break;
                 case "4":
                     System.out.println("\n --Find contact--");

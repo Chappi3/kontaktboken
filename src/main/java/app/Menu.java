@@ -12,6 +12,7 @@ public class Menu {
     String email = "";
     Scanner sc = new Scanner(System.in);
     String input = "";
+    int index;
 
     public void mainMenu(){
         System.out.println("\n_______ MENU ________");
@@ -60,7 +61,6 @@ public class Menu {
 
 
     public String[] editMenu(ContactBook contactBook){
-        int index;
         String[] data = new String[5];
         while(true) {
             System.out.print("Enter contact index: ");
@@ -74,7 +74,6 @@ public class Menu {
                     email = contactBook.getContactBook().get(index).getEmail();
                     break;
                 }
-                System.out.println("Contact with index '"+input+"' not found, try again");
             }
         }
         do{
@@ -132,8 +131,20 @@ public class Menu {
         return data;
     }
 
-    public String deleteMenu(){
-        return null;
+    //ask user which contact to delete while not get valid input(integer and in the contact book)
+    //return real index()
+    public int deleteMenu(ContactBook contactBook){
+        String[] data = new String[5];
+        while(true) {
+            System.out.print("Enter contact index: ");
+            input = sc.nextLine();
+            if (input.matches("[0-9]")) {
+                index = Integer.parseInt(input) - 1;
+                if(index < contactBook.getContactBook().size()) {
+                    System.out.println("index to delete: "+ index);
+                    return index;
+                }
+            }
+        }
     }
-
 }

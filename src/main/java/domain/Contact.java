@@ -10,16 +10,15 @@ import java.io.Serializable;
  */
 
 public class Contact implements Serializable {
-
+    //Serializable interface required
     private static final long serialVersionUID = 6841681686311138743L;
-
     //Fields
     private String firstName;
     private String lastName;
     private String phoneNumber;
     private String email;
 
-    //Controller
+    //Constructor
     public Contact(String firstName, String lastName, String phoneNumber, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -39,15 +38,19 @@ public class Contact implements Serializable {
         Contact obj2 = (Contact) obj;
         return getEmail().equals(obj2.getEmail());
     }
-   @Override
+
+    //make possibility to compare contact as java object
+    @Override
     public int hashCode() {
         return java.util.Objects.hash(getEmail());
     }
+
+    //return contact info in readable format
     @Override
     public String toString() {
         return "Name: " + getFirstName() + ' ' + getLastName() + '\n' +
-               "phone: " + getPhoneNumber() + '\n' +
-               "email: " + getEmail();
+                "phone: " + getPhoneNumber() + '\n' +
+                "email: " + getEmail();
     }
 
     //Getters & setters
@@ -57,12 +60,14 @@ public class Contact implements Serializable {
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
+
     public String getLastName() {
         return lastName;
     }
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+
     public String getPhoneNumber() {
         return phoneNumber;
     }

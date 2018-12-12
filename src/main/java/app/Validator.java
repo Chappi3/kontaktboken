@@ -11,6 +11,7 @@ public class Validator {
                 input.matches("[A-Z]{1}[a-z]{2,20}[ ][A-Z]{1}[a-z]{2,20}")) {
             return true;
         }
+        System.out.println("...invalid input, text only and start with uppercase, ex('Somename')");
         return false;
     }
 
@@ -19,6 +20,7 @@ public class Validator {
         if(input.matches("[0-9]{7,15}")){
             return true;
         }
+        System.out.println("...invalid input, numbers only, min 7 characters ex(07533628)");
         return false;
     }
 
@@ -27,6 +29,7 @@ public class Validator {
         if (input.matches("[A-Za-z0-9.-_]{1,30}[@][a-z]{2,10}[.][a-z]{2,10}")) {
             return true;
         }
+        System.out.println("...invalid input, '@' and domain required, ex('max@mail.com')");
         return false;
     }
 }

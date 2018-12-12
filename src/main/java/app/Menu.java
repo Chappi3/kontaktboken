@@ -1,6 +1,5 @@
 package app;
 
-import domain.Contact;
 import domain.ContactBook;
 
 import java.util.Scanner;
@@ -138,5 +137,11 @@ public class Menu {
                 }
             }
         }
+    }
+
+    public String searchMenu() {
+        System.out.print("Search: ");
+        input = sc.nextLine();
+        return input;
     }
 }

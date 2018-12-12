@@ -5,7 +5,6 @@ import com.google.gson.GsonBuilder;
 import domain.ContactBook;
 
 import java.io.*;
-import java.nio.file.Files;
 import java.util.stream.Collectors;
 
 /**
@@ -17,6 +16,8 @@ import java.util.stream.Collectors;
  * @since 2018-12-11
  */
 public class FileOperations {
+
+    private static final ClassLoader CLASS_LOADER = FileOperations.class.getClassLoader();
 
     /**
      * Load Contact book from serialized file
@@ -54,16 +55,25 @@ public class FileOperations {
     /**
      * Load Contact book from json file
      *
-     * @param fileName File name
+     * @param fileName File Name
      * @return Loaded Contact book
      * @throws IOException If error
      */
     public static ContactBook loadFromJson(String fileName) throws IOException {
-        File file = new File(fileName);
-        if (!file.exists())
-            return null;
 
-        String jsonString = Files.lines(file.toPath()).collect(Collectors.joining());
+        InputStream resourceAsStream = CLASS_LOADER.getResourceAsStream(fileName);
+        if (resourceAsStream == null)
+            return new ContactBook();
+
+        String jsonString = new BufferedReader(new InputStreamReader(resourceAsStream))
+                .lines().collect(Collectors.joining());
+
+
+        //File file = new File(fileName);
+        //if (!file.exists())
+        //     return new ContactBook();
+
+        //String jsonString = Files.lines(file.toPath()).collect(Collectors.joining());
         Gson gson = new GsonBuilder().create();
         return gson.fromJson(jsonString, ContactBook.class);
     }

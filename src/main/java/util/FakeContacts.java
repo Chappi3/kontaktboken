@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
  */
 public class FakeContacts {
 
-    private static final ClassLoader classLoader = FakeContacts.class.getClassLoader();
+    private static final ClassLoader CLASS_LOADER = FakeContacts.class.getClassLoader();
 
     /**
      * @param size Amount of contacts to generate
@@ -67,7 +67,7 @@ public class FakeContacts {
      * @return List of lines from file
      */
     public static List<String> lines(String fileName) {
-        InputStream resourceAsStream = classLoader.getResourceAsStream(fileName);
+        InputStream resourceAsStream = CLASS_LOADER.getResourceAsStream(fileName);
         if (resourceAsStream == null)
             return new ArrayList<>();
 

@@ -13,7 +13,8 @@ public class Search {
             for(int i = 0; i < contactBook.getContactBook().size(); i++) {
                 contactBook.getContactBook().get(i);
                 if(contactBook.getContactBook().get(i).getFirstName().equals(name)) {
-                    System.out.println(i);
+                    System.out.println(contactBook.getContactBook().get(i));
+                    break;
                 }
             }
         }else {
@@ -29,8 +30,9 @@ public class Search {
         if(!contactBook.getContactBook().isEmpty()) {
             for(int i = 0; i < contactBook.getContactBook().size(); i++) {
                 contactBook.getContactBook().get(i);
-                if(contactBook.getContactBook().get(i).getFirstName().equals(lastName)) {
-                    System.out.println(i);
+                if(contactBook.getContactBook().get(i).getLastName().equals(lastName)) {
+                    System.out.println(contactBook.getContactBook().get(i));
+                    break;
                 }
             }
         }else {
@@ -46,8 +48,9 @@ public class Search {
         if(!contactBook.getContactBook().isEmpty()) {
             for(int i = 0; i < contactBook.getContactBook().size(); i++) {
                 contactBook.getContactBook().get(i);
-                if(contactBook.getContactBook().get(i).getFirstName().equals(email)) {
-                    System.out.println(i);
+                if(contactBook.getContactBook().get(i).getEmail().equals(email)) {
+                    System.out.println(contactBook.getContactBook().get(i));
+                    break;
                 }
             }
         }else {
@@ -63,8 +66,9 @@ public class Search {
         if(!contactBook.getContactBook().isEmpty()) {
             for(int i = 0; i < contactBook.getContactBook().size(); i++) {
                 contactBook.getContactBook().get(i);
-                if(contactBook.getContactBook().get(i).getFirstName().equals(number)) {
-                    System.out.println(i);
+                if(contactBook.getContactBook().get(i).getPhoneNumber().equals(number)) {
+                    System.out.println(contactBook.getContactBook().get(i));
+                    break;
                 }
             }
         }else {

@@ -40,7 +40,7 @@ public class Main {
                     //find
                     break;
                 case "5":
-                    new Lister(contactBook).list();
+                    Lister.list(contactBook);
                     break;
                 default:
                     continue;

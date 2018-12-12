@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 public class Lister {
 
     /**
-     * Print all contacts to console
+     * Print all contacts to System out
      *
      * @param contactBook Contact book to print
      */
@@ -23,16 +23,26 @@ public class Lister {
         prettyPrint(contactBook.getContactBook());
     }
 
-    public static void contains(String find, ContactBook contactBook) {
-        String findLC = find.toLowerCase();
-        List<Contact> contacts = contactBook.getContactBook().stream().filter(c -> c.getFirstName().toLowerCase().contains(findLC)
-                || c.getLastName().toLowerCase().contains(findLC)
-                || c.getPhoneNumber().toLowerCase().contains(findLC)
-                || c.getEmail().toLowerCase().contains(findLC)).collect(Collectors.toList());
+    /**
+     * Print all contacts that contains the search parameter to System out
+     * Case insensitive
+     *
+     * @param contactBook Contact book to print
+     */
+    public static void contains(String search, ContactBook contactBook) {
+        String lowerCased = search.toLowerCase();
+        List<Contact> contacts = contactBook.getContactBook().stream().filter(c -> c.getFirstName().toLowerCase().contains(lowerCased)
+                || c.getLastName().toLowerCase().contains(lowerCased)
+                || c.getPhoneNumber().toLowerCase().contains(lowerCased)
+                || c.getEmail().toLowerCase().contains(lowerCased)).collect(Collectors.toList());
         prettyPrint(contacts);
 
     }
 
+    /**
+     * Private helper method that does the printing
+     * @param contacts contacts to print
+     */
     private static void prettyPrint(List<Contact> contacts) {
         String format = "%-25s %-25s %-25s %-25s" + System.getProperty("line.separator");
         System.out.printf(format, "      First Name", "Last Name", "Phone", "Email");

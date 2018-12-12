@@ -4,7 +4,10 @@ import domain.ContactBook;
 import java.util.Scanner;
 
 /**
- * @author Maksym Gorbunov
+ * Main class start application
+ *
+ * @author Maksym
+ * @since 2018-12-01
  */
 
 public class Main {

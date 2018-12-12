@@ -5,7 +5,10 @@ import domain.ContactBook;
 import java.util.Scanner;
 
 /**
- * @author Maksym Gorbunov
+ * Class consisting all menus for command line input
+ *
+ * @author Maksym
+ * @since 2018-12-01
  */
 
 public class Menu {

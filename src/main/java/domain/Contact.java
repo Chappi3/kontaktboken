@@ -2,7 +2,13 @@ package domain;
 
 import java.io.Serializable;
 
-///testar jankins
+/**
+ * Class consisting all contact data
+ *
+ * @author Maksym
+ * @since 2018-12-01
+ */
+
 public class Contact implements Serializable {
 
     private static final long serialVersionUID = 6841681686311138743L;

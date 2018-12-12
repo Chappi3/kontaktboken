@@ -2,11 +2,14 @@ package app;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 /**
- * @author Maksym Gorbunov
- * @since 2018-12-12
-*/
+ * Class check if class Validator work correct
+ *
+ * @author Maksym
+ * @since 2018-12-01
+ */
 
 class ValidatorTest {
     @Test

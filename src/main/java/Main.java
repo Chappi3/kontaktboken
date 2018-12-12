@@ -35,7 +35,8 @@ public class Main {
                 case "4":
                     System.out.println("\n --Find contact--");
                     String find = menu.searchMenu();
-//                    Search.contains(find, contactBook);
+//                    Search.contains(find, contactBook);--
+                    Lister.printContains(find, contactBook);
                     break;
                 case "5":
                     Lister.list(contactBook);

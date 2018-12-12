@@ -29,7 +29,6 @@ public class Search {
                 //This checks every contact and compares the parameters, if equal, then the contact gets printed
                 if(contactBook.getContactBook().get(i).getFirstName().equals(name)) {
                     System.out.println(contactBook.getContactBook().get(i));
-                    break;
                 }
             }
         }else {
@@ -51,7 +50,6 @@ public class Search {
                 contactBook.getContactBook().get(i);
                 if(contactBook.getContactBook().get(i).getLastName().equals(lastName)) {
                     System.out.println(contactBook.getContactBook().get(i));
-                    break;
                 }
             }
         }else {
@@ -73,7 +71,6 @@ public class Search {
                 contactBook.getContactBook().get(i);
                 if(contactBook.getContactBook().get(i).getEmail().equals(email)) {
                     System.out.println(contactBook.getContactBook().get(i));
-                    break;
                 }
             }
         }else {
@@ -95,7 +92,6 @@ public class Search {
                 contactBook.getContactBook().get(i);
                 if(contactBook.getContactBook().get(i).getPhoneNumber().equals(number)) {
                     System.out.println(contactBook.getContactBook().get(i));
-                    break;
                 }
             }
         }else {

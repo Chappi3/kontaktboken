@@ -3,32 +3,50 @@ package util;
 import domain.Contact;
 import domain.ContactBook;
 
-import java.io.File;
-import java.io.IOException;
-import java.net.URL;
-import java.nio.file.Files;
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Collectors;
 
 /**
- * Using names and emails found on randomlists.com
+ * Class for creating random contacts
+ * samples/firstnames.txt, samples/lastnames.txt and samples/emails.txt are gathered
+ * from randomlists.com
  */
 public class FakeContacts {
 
     private static final ClassLoader classLoader = FakeContacts.class.getClassLoader();
 
+    /**
+     * @param size Amount of contacts to generate
+     * @return Contact book
+     */
     public static ContactBook createBook(int size) {
         ContactBook contactBook = new ContactBook();
         contactBook.getContactBook().addAll(createContacts(size));
         return contactBook;
     }
 
+    /**
+     * @param size Amount of contacts to generate
+     * @return List with contacts
+     */
     public static List<Contact> createContacts(int size) {
         return contacts(size, lines("samples/firstnames.txt"), lines("samples/lastnames.txt"), lines("samples/emails.txt"));
     }
 
+    /**
+     * Randomly picks from each list to generate combinations
+     *
+     * @param size       Amount of contacts to generate
+     * @param firstNames List of first names
+     * @param lastNames  List of last names
+     * @param emails     List of emails
+     * @return List of contacts
+     */
     private static List<Contact> contacts(int size, List<String> firstNames, List<String> lastNames, List<String> emails) {
         int f = firstNames.size();
         int l = lastNames.size();
@@ -42,22 +60,20 @@ public class FakeContacts {
         return contacts;
     }
 
+    /**
+     * Create List of lines from file
+     *
+     * @param fileName file to pick from
+     * @return List of lines from file
+     */
     public static List<String> lines(String fileName) {
-
-        URL resource = classLoader.getResource(fileName);
-        if (resource == null)
+        InputStream resourceAsStream = classLoader.getResourceAsStream(fileName);
+        if (resourceAsStream == null)
             return new ArrayList<>();
 
-        File file = new File(resource.getFile());
-        if (!file.exists())
-            return new ArrayList<>();
+        return new BufferedReader(new InputStreamReader(resourceAsStream))
+                .lines().collect(Collectors.toList());
 
-        try {
-            return Files.lines(file.toPath()).collect(Collectors.toList());
-        } catch (IOException e) {
-            e.printStackTrace();
-            return new ArrayList<>();
-        }
     }
 
 }

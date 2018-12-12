@@ -5,8 +5,9 @@
     java -jar target/kontaktboken*.jar
 
 
-#### Oneteam
+#### Oneteam / Grupp 3
 * Ilari Silander
 * Hjalmar Arnell
 * Tonny Frisk
+* Maksym Gorbunov
 

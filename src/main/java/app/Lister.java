@@ -27,6 +27,7 @@ public class Lister {
      * Print all contacts that contains the search parameter to System out
      * Case insensitive
      *
+     * @param search String to match
      * @param contactBook Contact book to print
      */
     public static void printContains(String search, ContactBook contactBook) {
@@ -38,8 +39,9 @@ public class Lister {
      * Return all contacts that contains the search parameter
      * Case insensitive
      *
+     * @param search String to match
      * @param contactBook Contact book to search
-     * @return List<Contact> Contacts
+     * @return Contacts that match
      */
     public static List<Contact> contains(String search, ContactBook contactBook) {
         String lowerCased = search.toLowerCase();

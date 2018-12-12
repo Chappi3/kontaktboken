@@ -1,5 +1,9 @@
 package app;
 
+/**
+ * @author Maksym Gorbunov
+ */
+
 public class Validator {
     //Check first or last name (text only and start with uppercase, ex. "Daniel")
     public static boolean checkName(String input){

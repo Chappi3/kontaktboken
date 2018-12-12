@@ -4,6 +4,10 @@ import domain.ContactBook;
 
 import java.util.Scanner;
 
+/**
+ * @author Maksym Gorbunov
+ */
+
 public class Menu {
     //fields
     String firstName = "";

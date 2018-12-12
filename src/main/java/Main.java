@@ -6,6 +6,10 @@ import domain.ContactBook;
 
 import java.util.Scanner;
 
+/**
+ * @author Maksym Gorbunov
+ */
+
 public class Main {
     public static void main(String[] args) {
         ContactBook contactBook = new ContactBook();

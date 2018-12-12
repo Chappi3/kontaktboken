@@ -12,7 +12,7 @@ public class Edit {
         Menu menu = new Menu();
 
         // editMenu() returns a String[]
-        data = menu.editMenu();
+        data = menu.editMenu(contactBook);
 
         // contact to be edited
         Contact contact = contactBook.getContactBook().get(Integer.parseInt(data[0]));

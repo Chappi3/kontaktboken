@@ -86,7 +86,7 @@ public class Menu {
     }
 
     //menu for contact editor, asking for contact index while it's not valid, return checked new fields and index
-    //return (first name, second name, phone number, email, index) som String[]
+    //return (index, first name, second name, phone number, email) som String[]
     public String[] editMenu(ContactBook contactBook){
         String[] data = new String[5];
         while(true) {
@@ -125,16 +125,11 @@ public class Menu {
                 break;
             default: break;
         }
-        data[0] = firstName;
-        data[1] = lastName;
-        data[2] = phoneNumber;
-        data[3] = email;
-        data[4] = String.valueOf((index));
-        System.out.println(data[0]);
-        System.out.println(data[1]);
-        System.out.println(data[2]);
-        System.out.println(data[3]);
-        System.out.println(data[4]);
+        data[0] = String.valueOf((index));
+        data[1] = firstName;
+        data[2] = lastName;
+        data[3] = phoneNumber;
+        data[4] = email;
         return data;
     }
 

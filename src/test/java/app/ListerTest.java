@@ -41,7 +41,7 @@ class ListerTest {
         Lister lister = new Lister(contactBook);
         lister.list();
         assertEquals("First Name                Last Name                 Phone                     Email                    " + System.getProperty("line.separator") +
-                "Hjalmar                   Ar                        0709                      email@email.com          " + System.getProperty("line.separator") +
-                "Hjalmar                   Arasdffsafdssdfsdfsdf     0709                      email@email.com          " + System.getProperty("line.separator"), outContent.toString());
+                "1 Hjalmar                 Ar                        0709                      email@email.com          " + System.getProperty("line.separator") +
+                "2 Hjalmar                 Arasdffsafdssdfsdfsdf     0709                      email@email.com          " + System.getProperty("line.separator"), outContent.toString());
     }
 }

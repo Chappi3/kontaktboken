@@ -2,7 +2,7 @@
 
 #### to build and run
     mvn clean package
-    java -jar kontaktboken*.jar
+    java -jar target/kontaktboken*.jar
 
 
 #### Oneteam

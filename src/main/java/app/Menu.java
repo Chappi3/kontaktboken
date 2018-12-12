@@ -25,36 +25,51 @@ public class Menu {
         System.out.println("_____________________|");
     }
 
-
-    public String[] createMenu(){
+    public String inputFirstName(){
         while(true){
             System.out.print("First name: ");
             input = sc.nextLine();
             if(Validator.checkName(input)){
-                firstName = input; break;
+                return input;
             }
         }
+    }
+
+    public String inputLastName(){
         while(true){
             System.out.print("Last name: ");
             input = sc.nextLine();
             if(Validator.checkName(input)){
-                lastName = input; break;
+                return input;
             }
         }
+    }
+
+    public String inputPhoneNumber(){
         while(true){
             System.out.print("Phone number: ");
             input = sc.nextLine();
             if(Validator.checkPhoneNumber(input)){
-                phoneNumber = input; break;
+                return input;
             }
         }
+    }
+
+    public String inputEmail(){
         while(true){
             System.out.print("Email: ");
             input = sc.nextLine();
             if(Validator.checkEmail(input)){
-                email = input; break;
+                return input;
             }
         }
+    }
+
+    public String[] createMenu(){
+        firstName = inputFirstName();
+        lastName = inputLastName();
+        phoneNumber = inputPhoneNumber();
+        email = inputEmail();
         String[] data = new String[]{firstName, lastName, phoneNumber, email};
         return data;
     }
@@ -85,44 +100,24 @@ public class Menu {
         }while(!input.matches("[1-4]{1}"));
         switch (input){
             case "1":
-                while(true){
-                    System.out.print("First name: ");
-                    input = sc.nextLine();
-                    if(Validator.checkName(input)){
-                        firstName = input; break;
-                    }
-                }break;
+                firstName = inputFirstName();
+                break;
             case "2":
-                while(true){
-                    System.out.print("Last name: ");
-                    input = sc.nextLine();
-                    if(Validator.checkName(input)){
-                        lastName = input; break;
-                    }
-                }break;
+                lastName = inputLastName();
+                break;
             case "3":
-                while(true){
-                    System.out.print("Phone number: ");
-                    input = sc.nextLine();
-                    if(Validator.checkPhoneNumber(input)){
-                        phoneNumber = input; break;
-                    }
-                }break;
+                phoneNumber = inputPhoneNumber();
+                break;
             case "4":
-                while(true){
-                    System.out.print("Email: ");
-                    input = sc.nextLine();
-                    if(Validator.checkEmail(input)){
-                        email = input; break;
-                    }
-                }break;
+                email = inputEmail();
+                break;
             default: break;
         }
         data[0] = firstName;
         data[1] = lastName;
         data[2] = phoneNumber;
         data[3] = email;
-        data[4] = String.valueOf((index-1));
+        data[4] = String.valueOf((index));
         System.out.println(data[0]);
         System.out.println(data[1]);
         System.out.println(data[2]);
@@ -141,7 +136,6 @@ public class Menu {
             if (input.matches("[0-9]")) {
                 index = Integer.parseInt(input) - 1;
                 if(index < contactBook.getContactBook().size()) {
-                    System.out.println("index to delete: "+ index);
                     return index;
                 }
             }

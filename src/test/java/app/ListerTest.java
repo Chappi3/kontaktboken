@@ -8,8 +8,10 @@ import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * @author Hjalmar
@@ -55,10 +57,9 @@ class ListerTest {
         contactBook.getContactBook().add(new Contact("bil", "test", "0983435526", "bil@mail.com"));
         contactBook.getContactBook().add(new Contact("tim", "test", "0720709264", "tim@mail.com"));
         String find = "bob";
-        Lister.contains(find, contactBook);
-        assertEquals("      First Name          Last Name                 Phone                     Email                    " + System.getProperty("line.separator") +
-                "1     bob                 test                      0943325529                bob@mail.com             " + System.getProperty("line.separator"), outContent.toString());
-
+        List<Contact> contains = Lister.contains(find, contactBook);
+        assertTrue(1 == contains.size());
+        assertEquals(find, contains.get(0).getFirstName());
     }
 
     @Test
@@ -71,7 +72,7 @@ class ListerTest {
         contactBook.getContactBook().add(new Contact("bil", "test", "0983435526", "bil@mail.com"));
         contactBook.getContactBook().add(new Contact("tim", "test", "0720709264", "tim@mail.com"));
         String find = "0709";
-        Lister.contains(find, contactBook);
+        Lister.printContains(find, contactBook);
         assertEquals("      First Name          Last Name                 Phone                     Email                    " + System.getProperty("line.separator") +
                         "1     Hjalmar             Ar                        0709                      email@email.com          " + System.getProperty("line.separator") +
                         "2     Hjalmar             Arasdffsafdssdfsdfsdf     0709                      email@email.com          " + System.getProperty("line.separator") +

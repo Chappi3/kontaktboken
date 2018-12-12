@@ -29,18 +29,29 @@ public class Lister {
      *
      * @param contactBook Contact book to print
      */
-    public static void contains(String search, ContactBook contactBook) {
+    public static void printContains(String search, ContactBook contactBook) {
+        prettyPrint(contains(search, contactBook));
+    }
+
+
+    /**
+     * Return all contacts that contains the search parameter
+     * Case insensitive
+     *
+     * @param contactBook Contact book to search
+     * @return List<Contact> Contacts
+     */
+    public static List<Contact> contains(String search, ContactBook contactBook) {
         String lowerCased = search.toLowerCase();
-        List<Contact> contacts = contactBook.getContactBook().stream().filter(c -> c.getFirstName().toLowerCase().contains(lowerCased)
+        return contactBook.getContactBook().stream().filter(c -> c.getFirstName().toLowerCase().contains(lowerCased)
                 || c.getLastName().toLowerCase().contains(lowerCased)
                 || c.getPhoneNumber().toLowerCase().contains(lowerCased)
                 || c.getEmail().toLowerCase().contains(lowerCased)).collect(Collectors.toList());
-        prettyPrint(contacts);
-
     }
 
     /**
      * Private helper method that does the printing
+     *
      * @param contacts contacts to print
      */
     private static void prettyPrint(List<Contact> contacts) {

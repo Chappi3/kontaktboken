@@ -5,6 +5,7 @@ import domain.ContactBook;
 import java.util.Scanner;
 
 public class Menu {
+    //fields
     String firstName = "";
     String lastName = "";
     String phoneNumber = "";
@@ -13,6 +14,7 @@ public class Menu {
     String input = "";
     int index;
 
+    //print main menu
     public void mainMenu(){
         System.out.println("\n_______ MENU ________");
         System.out.println("1. Create contact    |");
@@ -24,6 +26,7 @@ public class Menu {
         System.out.println("_____________________|");
     }
 
+    //asking for first name while it's not valid, return checked
     public String inputFirstName(){
         while(true){
             System.out.print("First name: ");
@@ -34,6 +37,7 @@ public class Menu {
         }
     }
 
+    //asking for last name while it's not valid, return checked
     public String inputLastName(){
         while(true){
             System.out.print("Last name: ");
@@ -44,6 +48,7 @@ public class Menu {
         }
     }
 
+    //asking for phone number while it's not valid, return checked
     public String inputPhoneNumber(){
         while(true){
             System.out.print("Phone number: ");
@@ -54,6 +59,7 @@ public class Menu {
         }
     }
 
+    //asking for email while it's not valid, return checked
     public String inputEmail(){
         while(true){
             System.out.print("Email: ");
@@ -64,6 +70,8 @@ public class Menu {
         }
     }
 
+    //menu for contact creator, asking for contact fields while it's not valid, return checked
+    //return (first name, second name, phone number, email) som String[]
     public String[] createMenu(){
         firstName = inputFirstName();
         lastName = inputLastName();
@@ -73,7 +81,8 @@ public class Menu {
         return data;
     }
 
-
+    //menu for contact editor, asking for contact index while it's not valid, return checked new fields and index
+    //return (first name, second name, phone number, email, index) som String[]
     public String[] editMenu(ContactBook contactBook){
         String[] data = new String[5];
         while(true) {
@@ -125,6 +134,8 @@ public class Menu {
         return data;
     }
 
+    //menu for contact deleting, asking for contact index while it's not valid, return index
+    //return int index
     public int deleteMenu(ContactBook contactBook){
         String[] data = new String[5];
         while(true) {
@@ -139,6 +150,8 @@ public class Menu {
         }
     }
 
+    //menu for contact searching, asking for search text, return not checked
+    //return text
     public String searchMenu() {
         System.out.print("Search: ");
         input = sc.nextLine();

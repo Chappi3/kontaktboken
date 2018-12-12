@@ -1,4 +1,5 @@
 import app.Create;
+import app.Lister;
 import app.Menu;
 import domain.Contact;
 import domain.ContactBook;
@@ -26,22 +27,18 @@ public class Main {
                 case "2":
                     System.out.println("\n --Edit contact--");
 //                    Edit.editContacts(contactBook);
-                    String[] data = new String[5];
-                    data = menu.editMenu(contactBook);
                     break;
                 case "3":
                     System.out.println("\n --Delete contact--");
 //                    Delete.deleteContact(contactBook);
-                    menu.deleteMenu(contactBook);
                     break;
                 case "4":
                     System.out.println("\n --Find contact--");
                     String find = menu.searchMenu();
 //                    Search.contains(find, contactBook);
-                    System.out.println(find);
                     break;
                 case "5":
-//                    Lister.list(contactBook);
+                    Lister.list(contactBook);
                     break;
                 default:
                     continue;

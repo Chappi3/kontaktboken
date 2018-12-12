@@ -126,8 +126,6 @@ public class Menu {
         return data;
     }
 
-    //ask user which contact to delete while not get valid input(integer and in the contact book)
-    //return real index()
     public int deleteMenu(ContactBook contactBook){
         String[] data = new String[5];
         while(true) {

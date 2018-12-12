@@ -15,6 +15,8 @@ import java.util.stream.Collectors;
  * Class for creating random contacts
  * samples/firstnames.txt, samples/lastnames.txt and samples/emails.txt are gathered
  * from randomlists.com
+ * @author hjalmar
+ * @since 2018-12-12
  */
 public class FakeContacts {
 

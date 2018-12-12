@@ -26,8 +26,9 @@ public class Lister {
     public void list() {
         String format = "%-25s %-25s %-25s %-25s" + System.getProperty("line.separator");
         System.out.printf(format, "First Name", "Last Name", "Phone", "Email");
+        int i = 1;
         for (Contact contact : contactBook.getContactBook()) {
-            System.out.printf(format, contact.getFirstName(), contact.getLastName(), contact.getPhoneNumber(), contact.getEmail());
+            System.out.printf(format, (i++) + " " + contact.getFirstName(), contact.getLastName(), contact.getPhoneNumber(), contact.getEmail());
         }
     }
 }

@@ -1,5 +1,5 @@
 # Kontaktboken
-Kontaktboken is a console application to manage contact information. Kontaktboken allows you to:
+Kontaktboken is a console application to manage contact information. It was made in a 2 week project to get experience in Scrum, Git, Junit, Javadoc, Maven and Jenkins. Kontaktboken allows you to:
 * Create a contact
 * Remove a contact
 * Print all
@@ -12,9 +12,9 @@ Kontaktboken is a console application to manage contact information. Kontaktboke
     java -jar target/kontaktboken*.jar
 
 
-#### Oneteam / Grupp 3
-* Ilari Silander
-* Hjalmar Arnell
-* Tonny Frisk
-* Maksym Gorbunov
+## Developers Oneteam / Grupp 3
+* Ilari Silander https://github.com/ilarisilander
+* Hjalmar Arnell https://github.com/hjalmar-arnell
+* Tonny Frisk https://github.com/Chappi3
+* Maksym Gorbunov https://github.com/Maksym-Gorbunov
 

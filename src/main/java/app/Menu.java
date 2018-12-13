@@ -43,7 +43,7 @@ public class Menu {
     public String nameFormatCorrector(String input) {
         String[] splitedInput = input.trim().split("\\s+");
         String result = splitedInput[0].substring(0, 1).toUpperCase() + splitedInput[0].substring(1).toLowerCase();
-        for (int i = 0; i < splitedInput.length; i++) {
+        for (int i = 1; i < splitedInput.length; i++) {
             result += " " + splitedInput[i].substring(0, 1).toUpperCase() + splitedInput[i].substring(1).toLowerCase();
         }
         return result;

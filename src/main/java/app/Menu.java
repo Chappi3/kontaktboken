@@ -1,7 +1,10 @@
 package app;
 
 import domain.ContactBook;
+import file.FileOperations;
 
+import java.io.File;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -27,9 +30,12 @@ public class Menu {
         System.out.println("1. Create contact    |");
         System.out.println("2. Edit contact      |");
         System.out.println("3. Delete contact    |");
-        System.out.println("4. Find contact      |");
+        System.out.println("4. Search            |");
         System.out.println("5. Show all contacts |");
-        System.out.println("6. Exit              |");
+        System.out.println("6. New               |");
+        System.out.println("7. Save              |");
+        System.out.println("8. Load              |");
+        System.out.println("9. Exit              |");
         System.out.println("_____________________|");
     }
 
@@ -143,7 +149,7 @@ public class Menu {
         while(true) {
             System.out.print("Enter contact index: ");
             input = sc.nextLine();
-            if (input.matches("[0-9]")) {
+            if (input.matches("[0-9]+")) {
                 index = Integer.parseInt(input) - 1;
                 if(index < contactBook.getContactBook().size()) {
                     return index;
@@ -158,5 +164,32 @@ public class Menu {
         System.out.print("Search: ");
         input = sc.nextLine();
         return input;
+    }
+
+    //meu for saving contact book to json file
+    public String saveMenu() {
+        System.out.print("Save contact book as: ");
+        input = sc.nextLine();
+        return input.toLowerCase();
+    }
+
+    //menu for loading contact book from json file
+    public String loadMenu() {
+        FileOperations fileOperations = new FileOperations();
+        List<String> contactBooks = fileOperations.getNamesOfContactBooks();
+        int i = 0;
+        for (String book : contactBooks) {
+            System.out.println(++i + ". " + book);
+        }
+        do {
+            System.out.print("\nChoose contact book: ");
+            input = sc.nextLine();
+            if ((input.matches("[0-9]+")) && (Integer.parseInt(input) <= contactBooks.size())) {
+                break;
+            }
+            System.out.println("invalid input, choose between " + 1 + " and " + contactBooks.size());
+        } while (true);
+        String contactBookName = contactBooks.get(Integer.parseInt(input) - 1);
+        return "samples" + File.separator + contactBookName + ".json";
     }
 }

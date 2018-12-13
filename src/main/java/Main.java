@@ -2,7 +2,6 @@ import app.*;
 import domain.ContactBook;
 import file.FileOperations;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -15,12 +14,8 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-//        FakeContacts.createContacts(10);
-        ContactBook contactBook = FileOperations.loadFromJson("samples" + File.separator + "contacts1000.json");
-//        ContactBook contactBook = new ContactBook(FakeContacts.contacts(8));
-
-
-        //read file - > create createContactBook else create new book
+        ContactBook contactBook = new ContactBook();
+        String contactBookName;
         Menu menu = new Menu();
         Scanner sc = new Scanner(System.in);
         String choice = "";
@@ -44,23 +39,34 @@ public class Main {
                     System.out.println("\n --Find contact--");
                     String find = menu.searchMenu();
 //                    Search.contains(find, contactBook);--
-
                     Search search = new Search();
                     search.searchName(find, contactBook);
                     search.searchLastName(find, contactBook);
                     search.searchNumber(find, contactBook);
                     search.searchEmail(find, contactBook);
-
-
 //                    Lister.printContains(find, contactBook);
                     break;
                 case "5":
                     Lister.list(contactBook);
                     break;
+                case "6":
+                    System.out.println("\n --New contact book--");
+                    contactBook = new ContactBook();
+                    break;
+                case "7":
+                    System.out.println("\n --Save contact book--");
+                    contactBookName = menu.saveMenu();
+                    FileOperations.saveToJson(contactBookName, contactBook);
+                    break;
+                case "8":
+                    System.out.println("\n --Load contact book--");
+                    contactBookName = menu.loadMenu();
+                    contactBook = FileOperations.loadFromJson(contactBookName);
+                    break;
                 default:
                     continue;
             }
-        }while(!choice.equals("6"));
+        } while (!choice.equals("9"));
         System.out.println("exit...");
     }
 }

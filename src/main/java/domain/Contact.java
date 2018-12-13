@@ -26,7 +26,7 @@ public class Contact implements Serializable {
         this.email = email;
     }
 
-    //Use equals for comparing Contact with another Contact
+    //Use equals for comparing Contact with another Contact, email uniq
     @Override
     public boolean equals(Object obj) {
         if (obj == this) {

@@ -170,7 +170,8 @@ public class Menu {
     public String saveMenu() {
         System.out.print("Save contact book as: ");
         input = sc.nextLine();
-        return input.toLowerCase();
+        return "src" + File.separator + "main" + File.separator + "resources" + File.separator +
+                "samples" + File.separator + input.toLowerCase() + ".json";
     }
 
     //menu for loading contact book from json file

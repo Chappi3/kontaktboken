@@ -3,6 +3,7 @@ package app;
 import domain.ContactBook;
 import file.FileOperations;
 
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -172,6 +173,10 @@ public class Menu {
     //meu for loading contact book from json file
     public void loadMenu() {
         FileOperations fileOperations = new FileOperations();
-        fileOperations.getNamesOfContactBooks();
+        List<String> contactBooks = fileOperations.getNamesOfContactBooks();
+        int i = 0;
+        for (String book : contactBooks) {
+            System.out.println(++i + ". " + book);
+        }
     }
 }

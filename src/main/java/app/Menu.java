@@ -95,7 +95,7 @@ public class Menu {
         while(true) {
             System.out.print("Enter contact index: ");
             input = sc.nextLine();
-            if (input.matches("[0-9]")) {
+            if (input.matches("[0-9]+")) {
                 index = Integer.parseInt(input) - 1;
                 if(index < contactBook.getContactBook().size()) {
                     firstName = contactBook.getContactBook().get(index).getFirstName();

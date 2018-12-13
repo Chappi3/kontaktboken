@@ -1,6 +1,9 @@
 import app.*;
 import domain.ContactBook;
+import file.FileOperations;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Scanner;
 
 /**
@@ -11,9 +14,13 @@ import java.util.Scanner;
  */
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+//        FakeContacts.createContacts(10);
+        ContactBook contactBook = FileOperations.loadFromJson("samples" + File.separator + "contacts1000.json");
+//        ContactBook contactBook = new ContactBook(FakeContacts.contacts(8));
+
+
         //read file - > create createContactBook else create new book
-        ContactBook contactBook = new ContactBook();
         Menu menu = new Menu();
         Scanner sc = new Scanner(System.in);
         String choice = "";

@@ -1,6 +1,7 @@
 package app;
 
 import domain.ContactBook;
+import file.FileOperations;
 
 import java.util.Scanner;
 
@@ -166,5 +167,11 @@ public class Menu {
     public String saveMenu() {
         input = sc.nextLine();
         return input.toLowerCase();
+    }
+
+    //meu for loading contact book from json file
+    public void loadMenu() {
+        FileOperations fileOperations = new FileOperations();
+        fileOperations.getNamesOfContactBooks();
     }
 }

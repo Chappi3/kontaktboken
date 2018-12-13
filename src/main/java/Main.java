@@ -2,7 +2,6 @@ import app.*;
 import domain.ContactBook;
 import file.FileOperations;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -54,9 +53,10 @@ public class Main {
                     contactBookName = menu.saveMenu();
                     FileOperations.saveToJson(contactBookName, contactBook);
                 case "7":
+                    menu.loadMenu();
                     //?? need to clean before load book
-                    contactBookName = menu.loadMenu();
-                    contactBook = FileOperations.loadFromJson("samples" + File.separator + "contacts1000.json");
+//                    contactBookName = menu.loadMenu();
+//                    contactBook = FileOperations.loadFromJson("samples" + File.separator + "contacts1000.json");
                 default:
                     continue;
             }

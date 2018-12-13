@@ -5,6 +5,8 @@ import com.google.gson.GsonBuilder;
 import domain.ContactBook;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Collectors;
 
 /**
@@ -92,5 +94,28 @@ public class FileOperations {
         try (FileOutputStream fos = new FileOutputStream(file); PrintWriter pw = new PrintWriter(fos)) {
             pw.print(jsonString);
         }
+    }
+
+
+    /**
+     * method collect all names of contact books (json only ) and return them without extensions
+     *
+     * @author Maksym
+     * @since 2018-12-01
+     */
+    public List<String> getNamesOfContactBooks() {
+        List<String> results = new ArrayList<String>();
+        String path = System.getProperty("user.dir") + File.separator + "src" + File.separator + "main" +
+                File.separator + "resources" + File.separator + "samples";
+        File[] files = new File(path).listFiles();
+        for (File file : files) {
+            if (file.isFile()) {
+                String filename = file.getName();
+                if (filename.substring(filename.length() - 5).equals(".json")) {
+                    results.add(file.getName().substring(0, filename.length() - 6));
+                }
+            }
+        }
+        return results;
     }
 }

@@ -32,9 +32,10 @@ public class Menu {
         System.out.println("3. Delete contact    |");
         System.out.println("4. Search            |");
         System.out.println("5. Show all contacts |");
-        System.out.println("6. Save              |");
-        System.out.println("7. Load              |");
-        System.out.println("8. Exit              |");
+        System.out.println("6. New               |");
+        System.out.println("7. Save              |");
+        System.out.println("8. Load              |");
+        System.out.println("9. Exit              |");
         System.out.println("_____________________|");
     }
 
@@ -167,6 +168,7 @@ public class Menu {
 
     //meu for saving contact book to json file
     public String saveMenu() {
+        System.out.print("Save contact book as: ");
         input = sc.nextLine();
         return input.toLowerCase();
     }

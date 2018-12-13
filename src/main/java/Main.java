@@ -50,18 +50,23 @@ public class Main {
                     Lister.list(contactBook);
                     break;
                 case "6":
+                    System.out.println("\n --New contact book--");
+                    contactBook = new ContactBook();
+                    break;
+                case "7":
                     System.out.println("\n --Save contact book--");
                     contactBookName = menu.saveMenu();
                     FileOperations.saveToJson(contactBookName, contactBook);
-                case "7":
+                    break;
+                case "8":
                     System.out.println("\n --Load contact book--");
-                    //?? need to clean before load book
                     contactBookName = menu.loadMenu();
                     contactBook = FileOperations.loadFromJson(contactBookName);
+                    break;
                 default:
                     continue;
             }
-        } while (!choice.equals("8"));
+        } while (!choice.equals("9"));
         System.out.println("exit...");
     }
 }

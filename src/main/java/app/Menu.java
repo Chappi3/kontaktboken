@@ -27,9 +27,11 @@ public class Menu {
         System.out.println("1. Create contact    |");
         System.out.println("2. Edit contact      |");
         System.out.println("3. Delete contact    |");
-        System.out.println("4. Find contact      |");
+        System.out.println("4. Search            |");
         System.out.println("5. Show all contacts |");
-        System.out.println("6. Exit              |");
+        System.out.println("6. Save              |");
+        System.out.println("7. Load              |");
+        System.out.println("8. Exit              |");
         System.out.println("_____________________|");
     }
 
@@ -143,7 +145,7 @@ public class Menu {
         while(true) {
             System.out.print("Enter contact index: ");
             input = sc.nextLine();
-            if (input.matches("[0-9]")) {
+            if (input.matches("[0-9]+")) {
                 index = Integer.parseInt(input) - 1;
                 if(index < contactBook.getContactBook().size()) {
                     return index;
@@ -158,5 +160,11 @@ public class Menu {
         System.out.print("Search: ");
         input = sc.nextLine();
         return input;
+    }
+
+    //meu for saving contact book to json file
+    public String saveMenu() {
+        input = sc.nextLine();
+        return input.toLowerCase();
     }
 }

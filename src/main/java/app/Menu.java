@@ -39,13 +39,23 @@ public class Menu {
         System.out.println("_____________________|");
     }
 
+    //name format corrector, ex. in:"daVid dRESden" out:"David Dresden"
+    public String nameFormatCorrector(String input) {
+        String[] splitedInput = input.trim().split("\\s+");
+        String result = splitedInput[0].substring(0, 1).toUpperCase() + splitedInput[0].substring(1).toLowerCase();
+        for (int i = 0; i < splitedInput.length; i++) {
+            result += " " + splitedInput[i].substring(0, 1).toUpperCase() + splitedInput[i].substring(1).toLowerCase();
+        }
+        return result;
+    }
+
     //asking for first name while it's not valid, return checked
     public String inputFirstName(){
         while(true){
             System.out.print("First name: ");
             input = sc.nextLine();
             if (Validator.checkName(input)) {
-                return input.substring(0, 1).toUpperCase() + input.substring(1);
+                return nameFormatCorrector(input);
             }
         }
     }
@@ -56,7 +66,7 @@ public class Menu {
             System.out.print("Last name: ");
             input = sc.nextLine();
             if(Validator.checkName(input)){
-                return input.substring(0, 1).toUpperCase() + input.substring(1);
+                return nameFormatCorrector(input);
             }
         }
     }

@@ -3,7 +3,6 @@ package app;
 import domain.ContactBook;
 import file.FileOperations;
 
-import java.io.File;
 import java.util.List;
 import java.util.Scanner;
 
@@ -180,8 +179,7 @@ public class Menu {
     public String saveMenu() {
         System.out.print("Save contact book as: ");
         input = sc.nextLine();
-        return "src" + File.separator + "main" + File.separator + "resources" + File.separator +
-                "samples" + File.separator + input.toLowerCase() + ".json";
+        return input.toLowerCase() + ".json";
     }
 
     //menu for loading contact book from json file
@@ -201,6 +199,6 @@ public class Menu {
             System.out.println("invalid input, choose between " + 1 + " and " + contactBooks.size());
         } while (true);
         String contactBookName = contactBooks.get(Integer.parseInt(input) - 1);
-        return "samples" + File.separator + contactBookName + ".json";
+        return contactBookName + ".json";
     }
 }

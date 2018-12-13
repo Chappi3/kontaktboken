@@ -3,7 +3,26 @@ package app;
 import domain.Contact;
 import domain.ContactBook;
 
+/**
+ * Class to edit a contact
+ *
+ * @author Tonny Frisk
+ * @since 2018-12-12
+ */
+
 public class Edit {
+
+    /**
+     * This method takes a contactBook that we send to editMenu to get the inputs to be used.
+     * The inputs are returned as an String[] called data.
+     * data[0] is the contacts index in the contactBook.
+     * data[1] is the contacts firstName.
+     * data[2] is the contacts lastName.
+     * data[3] is the contacts phoneNumber.
+     * data[4] is the contacts mail.
+     *
+     * @param contactBook Parameter to get a contact from.
+     */
 
     // Edits a contact
     public static void editContact(ContactBook contactBook) {
@@ -22,17 +41,11 @@ public class Edit {
             // changes the firstName to input
             contact.setFirstName(data[1]);
         }
-        else {
-            // throw new exception
-        }
 
         // checks if the input is not null OR input is the same as current lastName variable
         if (data[2] != null || !data[2].equals(contact.getLastName())) {
             // changes the lastName to input
             contact.setLastName(data[2]);
-        }
-        else {
-            // throw new exception
         }
 
         // checks if the input is not null OR input is the same as current phoneNumber variable
@@ -40,17 +53,11 @@ public class Edit {
             // changes the phoneNumber to input
             contact.setPhoneNumber(data[3]);
         }
-        else {
-            // throw new exception
-        }
 
         // checks if the input is not null OR input is the same as current email variable
         if (data[4] != null || !data[4].equals(contact.getEmail())) {
             // changes the email to input
             contact.setEmail(data[4]);
-        }
-        else {
-            // throw new exception
         }
     }
 }

@@ -42,9 +42,10 @@ class ListerTest {
         contactBook.getContactBook().add(new Contact("Hjalmar", "Arasdffsafdssdfsdfsdf", "0709", "email@email.com"));
 
         Lister.list(contactBook);
-        assertEquals("      First Name          Last Name                 Phone                     Email                    " + System.getProperty("line.separator") +
-                "1     Hjalmar             Ar                        0709                      email@email.com          " + System.getProperty("line.separator") +
-                "2     Hjalmar             Arasdffsafdssdfsdfsdf     0709                      email@email.com          " + System.getProperty("line.separator"), outContent.toString());
+        assertEquals(System.getProperty("line.separator") +
+                "Nr     First Name                Last Name                 Phone                     Email                    " + System.getProperty("line.separator") +
+                "1      Hjalmar                   Ar                        0709                      email@email.com          " + System.getProperty("line.separator") +
+                "2      Hjalmar                   Arasdffsafdssdfsdfsdf     0709                      email@email.com          " + System.getProperty("line.separator"), outContent.toString());
     }
 
     @Test
@@ -73,10 +74,11 @@ class ListerTest {
         contactBook.getContactBook().add(new Contact("tim", "test", "0720709264", "tim@mail.com"));
         String find = "0709";
         Lister.printContains(find, contactBook);
-        assertEquals("      First Name          Last Name                 Phone                     Email                    " + System.getProperty("line.separator") +
-                        "1     Hjalmar             Ar                        0709                      email@email.com          " + System.getProperty("line.separator") +
-                        "2     Hjalmar             Arasdffsafdssdfsdfsdf     0709                      email@email.com          " + System.getProperty("line.separator") +
-                        "3     tim                 test                      0720709264                tim@mail.com             " + System.getProperty("line.separator")
+        assertEquals(System.getProperty("line.separator") +
+                        "Nr     First Name                Last Name                 Phone                     Email                    " + System.getProperty("line.separator") +
+                        "1      Hjalmar                   Ar                        0709                      email@email.com          " + System.getProperty("line.separator") +
+                        "2      Hjalmar                   Arasdffsafdssdfsdfsdf     0709                      email@email.com          " + System.getProperty("line.separator") +
+                        "3      tim                       test                      0720709264                tim@mail.com             " + System.getProperty("line.separator")
                 , outContent.toString());
 
     }

@@ -27,7 +27,7 @@ public class Lister {
      * Print all contacts that contains the search parameter to System out
      * Case insensitive
      *
-     * @param search String to match
+     * @param search      String to match
      * @param contactBook Contact book to print
      */
     public static void printContains(String search, ContactBook contactBook) {
@@ -39,7 +39,7 @@ public class Lister {
      * Return all contacts that contains the search parameter
      * Case insensitive
      *
-     * @param search String to match
+     * @param search      String to match
      * @param contactBook Contact book to search
      * @return Contacts that match
      */
@@ -57,11 +57,16 @@ public class Lister {
      * @param contacts contacts to print
      */
     private static void prettyPrint(List<Contact> contacts) {
-        String format = "%-25s %-25s %-25s %-25s" + System.getProperty("line.separator");
-        System.out.printf(format, "      First Name", "Last Name", "Phone", "Email");
+        System.out.println("");
+        if (contacts == null || contacts.isEmpty()) {
+            System.out.println("Empty contact book");
+            return;
+        }
+        String format = "%-6s %-25s %-25s %-25s %-25s" + System.getProperty("line.separator");
+        System.out.printf(format, "Nr", "First Name", "Last Name", "Phone", "Email");
         int i = 1;
         for (Contact contact : contacts) {
-            System.out.printf(format, (i++) + "     " + contact.getFirstName(), contact.getLastName(), contact.getPhoneNumber(), contact.getEmail());
+            System.out.printf(format, (i++), contact.getFirstName(), contact.getLastName(), contact.getPhoneNumber(), contact.getEmail());
         }
     }
 }

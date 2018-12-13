@@ -8,10 +8,9 @@ package app;
  */
 
 public class Validator {
-    //Check first or last name (text only and start with uppercase, ex. "Daniel")
+    //Check first or last name
     public static boolean checkName(String input){
-        if (input.matches("[A-Z]{1}[a-z]{2,20}") ||
-                input.matches("[A-Z]{1}[a-z]{2,20}[ ][A-Z]{1}[a-z]{2,20}")) {
+        if (input.toLowerCase().matches("[a-z]{2,20}[ ]{0,1}[a-z]{2,20}")) {
             return true;
         }
         System.out.println("...invalid input, text only and start with uppercase, ex('Somename')");

@@ -44,8 +44,8 @@ public class Menu {
         while(true){
             System.out.print("First name: ");
             input = sc.nextLine();
-            if(Validator.checkName(input)){
-                return input;
+            if (Validator.checkName(input)) {
+                return input.substring(0, 1).toUpperCase() + input.substring(1);
             }
         }
     }
@@ -56,7 +56,7 @@ public class Menu {
             System.out.print("Last name: ");
             input = sc.nextLine();
             if(Validator.checkName(input)){
-                return input;
+                return input.substring(0, 1).toUpperCase() + input.substring(1);
             }
         }
     }

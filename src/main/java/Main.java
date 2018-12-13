@@ -13,7 +13,7 @@ import java.util.Scanner;
  */
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         ContactBook contactBook = new ContactBook();
         String contactBookName;
         Menu menu = new Menu();
@@ -55,14 +55,22 @@ public class Main {
                     break;
                 case "7":
                     System.out.println("\n --Save contact book--");
-                    contactBookName = menu.saveMenu();
-                    FileOperations.saveToJson(contactBookName, contactBook);
-                    break;
+                    try {
+                        contactBookName = menu.saveMenu();
+                        FileOperations.saveToJson(contactBookName, contactBook);
+                        break;
+                    } catch (IOException e) {
+                        System.out.println("Saving failed, try again");
+                    }
                 case "8":
                     System.out.println("\n --Load contact book--");
-                    contactBookName = menu.loadMenu();
-                    contactBook = FileOperations.loadFromJson(contactBookName);
-                    break;
+                    try {
+                        contactBookName = menu.loadMenu();
+                        contactBook = FileOperations.loadFromJson(contactBookName);
+                        break;
+                    } catch (IOException e) {
+                        System.out.println("Loading failed, try again");
+                    }
                 default:
                     continue;
             }

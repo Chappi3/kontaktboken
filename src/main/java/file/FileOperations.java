@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 /**
  * Class for loading and saving
  *
- * @author hjalmar
+ * @author hjalmar, maksym
  * @see domain.Contact
  * @see ContactBook
  * @since 2018-12-11
@@ -20,6 +20,7 @@ import java.util.stream.Collectors;
 public class FileOperations {
 
     private static final ClassLoader CLASS_LOADER = FileOperations.class.getClassLoader();
+    public static String path = System.getProperty("user.dir") + File.separator + "samples" + File.separator;
 
     /**
      * Load Contact book from serialized file
@@ -62,8 +63,8 @@ public class FileOperations {
      * @throws IOException If error
      */
     public static ContactBook loadFromJson(String fileName) throws IOException {
-
-        InputStream resourceAsStream = CLASS_LOADER.getResourceAsStream(fileName);
+        InputStream resourceAsStream = new FileInputStream(path + fileName);
+//        InputStream resourceAsStream = CLASS_LOADER.getResourceAsStream(fileName);
         if (resourceAsStream == null)
             return new ContactBook();
 
@@ -88,7 +89,7 @@ public class FileOperations {
      * @throws IOException If error
      */
     public static void saveToJson(String fileName, ContactBook contactBook) throws IOException {
-        File file = new File(fileName);
+        File file = new File(path + fileName);
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         String jsonString = gson.toJson(contactBook);
         try (FileOutputStream fos = new FileOutputStream(file); PrintWriter pw = new PrintWriter(fos)) {
@@ -105,8 +106,6 @@ public class FileOperations {
      */
     public List<String> getNamesOfContactBooks() {
         List<String> results = new ArrayList<String>();
-        String path = System.getProperty("user.dir") + File.separator + "src" + File.separator + "main" +
-                File.separator + "resources" + File.separator + "samples";
         File[] files = new File(path).listFiles();
         for (File file : files) {
             if (file.isFile()) {

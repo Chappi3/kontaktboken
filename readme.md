@@ -1,6 +1,13 @@
 # Kontaktboken
+Kontaktboken is a console application to manage contact information. Kontaktboken allows you to:
+* Create a contact
+* Remove a contact
+* Print all
+* Edit
+* Search
+* Save to json
 
-#### to build and run
+## Quick start
     mvn clean package
     java -jar target/kontaktboken*.jar
 

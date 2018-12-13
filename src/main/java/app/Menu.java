@@ -3,6 +3,7 @@ package app;
 import domain.ContactBook;
 import file.FileOperations;
 
+import java.io.File;
 import java.util.List;
 import java.util.Scanner;
 
@@ -170,13 +171,23 @@ public class Menu {
         return input.toLowerCase();
     }
 
-    //meu for loading contact book from json file
-    public void loadMenu() {
+    //menu for loading contact book from json file
+    public String loadMenu() {
         FileOperations fileOperations = new FileOperations();
         List<String> contactBooks = fileOperations.getNamesOfContactBooks();
         int i = 0;
         for (String book : contactBooks) {
             System.out.println(++i + ". " + book);
         }
+        do {
+            System.out.print("\nChoose contact book: ");
+            input = sc.nextLine();
+            if ((input.matches("[0-9]+")) && (Integer.parseInt(input) <= contactBooks.size())) {
+                break;
+            }
+            System.out.println("invalid input, choose between " + 1 + " and " + contactBooks.size());
+        } while (true);
+        String contactBookName = contactBooks.get(Integer.parseInt(input) - 1);
+        return "samples" + File.separator + contactBookName + ".json";
     }
 }

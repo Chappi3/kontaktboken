@@ -50,13 +50,14 @@ public class Main {
                     Lister.list(contactBook);
                     break;
                 case "6":
+                    System.out.println("\n --Save contact book--");
                     contactBookName = menu.saveMenu();
                     FileOperations.saveToJson(contactBookName, contactBook);
                 case "7":
-                    menu.loadMenu();
+                    System.out.println("\n --Load contact book--");
                     //?? need to clean before load book
-//                    contactBookName = menu.loadMenu();
-//                    contactBook = FileOperations.loadFromJson("samples" + File.separator + "contacts1000.json");
+                    contactBookName = menu.loadMenu();
+                    contactBook = FileOperations.loadFromJson(contactBookName);
                 default:
                     continue;
             }

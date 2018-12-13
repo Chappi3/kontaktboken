@@ -111,8 +111,8 @@ public class FileOperations {
         for (File file : files) {
             if (file.isFile()) {
                 String filename = file.getName();
-                if (filename.substring(filename.length() - 5).equals(".json")) {
-                    results.add(file.getName().substring(0, filename.length() - 6));
+                if ((filename.substring(filename.length() - 5)).equals(".json")) {
+                    results.add(file.getName().substring(0, filename.length() - 5));
                 }
             }
         }

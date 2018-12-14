@@ -176,8 +176,11 @@ public class Menu {
     //menu for contact searching, asking for search text, return not checked
     //return text
     public String searchMenu() {
-        System.out.print("Search: ");
+        System.out.print("Search (press '0' for exit): ");
         input = sc.nextLine();
+        if (input.equals("0")) {
+            throw new NullPointerException();
+        }
         return input;
     }
 

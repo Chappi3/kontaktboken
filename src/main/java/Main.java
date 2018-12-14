@@ -55,8 +55,11 @@ public class Main {
                     break;
                 case "4":
                     System.out.println("\n --Find contact--");
-                    String find = menu.searchMenu();
-                    Search.search(find, contactBook);
+                    try {
+                        String find = menu.searchMenu();
+                        Search.search(find, contactBook);
+                    } catch (NullPointerException e) {
+                    }
                     break;
                 case "5":
                     Lister.list(contactBook);

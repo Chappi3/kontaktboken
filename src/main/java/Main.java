@@ -21,7 +21,6 @@ public class Main {
         } catch (NoSuchElementException e) {
             System.out.println(System.getProperty("line.separator") + "Abrupt exit...");
         }
-
     }
 
     public static void start(String[] args) {
@@ -36,21 +35,23 @@ public class Main {
             switch (choice) {
                 case "1":
                     System.out.println("\n --Create contact--");
-                    Create.createContact(contactBook);
+                    Create.createContact(new Menu().createMenu(), contactBook);
+//                    Create.createContact(contactBook);
                     break;
                 case "2":
                     System.out.println("\n --Edit contact--");
-                    Edit.editContact(contactBook);
+                    Edit.editContact(new Menu().editMenu(contactBook), contactBook);
+//                    Edit.editContact(contactBook);
                     break;
                 case "3":
                     System.out.println("\n --Delete contact--");
-                    Delete.deleteContact(contactBook);
+                    Delete.deleteContact(new Menu().deleteMenu(contactBook), contactBook);
+//                    Delete.deleteContact(contactBook);
                     break;
                 case "4":
                     System.out.println("\n --Find contact--");
                     String find = menu.searchMenu();
-//                    Search.search(find, contactBook);
-//                    System.out.println(Lister.contains(find, contactBook));
+                    Search.search(find, contactBook);
                     break;
                 case "5":
                     Lister.list(contactBook);

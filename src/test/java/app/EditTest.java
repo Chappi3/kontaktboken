@@ -13,11 +13,13 @@ class EditTest {
 
     private Contact contact = new Contact("tonny", "frisk", "1234560", "mail@mail.se");
 
+    private String[] newData = {"0","Tonny","Frisk","123456","email@email.com"};
+
     // checks if firstName changes to the contactBook correctly
     @Test
     void doesContactFirstNameChangeCorrectly() {
         contactBook.getContactBook().add(contact);
-        contact.setFirstName("Tonny");
+        Edit.editContact(newData,contactBook);
         assertEquals("Tonny", contactBook.getContactBook().get(0).getFirstName(), "Test failed");
     }
 
@@ -25,7 +27,7 @@ class EditTest {
     @Test
     void doesContactLastNameChangeCorrectly() {
         contactBook.getContactBook().add(contact);
-        contact.setLastName("Frisk");
+        Edit.editContact(newData,contactBook);
         assertEquals("Frisk", contactBook.getContactBook().get(0).getLastName(), "Test failed");
     }
 
@@ -33,7 +35,7 @@ class EditTest {
     @Test
     void doesContactPhoneNumberChangeCorrectly() {
         contactBook.getContactBook().add(contact);
-        contact.setPhoneNumber("123456");
+        Edit.editContact(newData,contactBook);
         assertEquals("123456", contactBook.getContactBook().get(0).getPhoneNumber(), "Test failed");
     }
 
@@ -41,7 +43,7 @@ class EditTest {
     @Test
     void doesContactEmailChangeCorrectly() {
         contactBook.getContactBook().add(contact);
-        contact.setEmail("email@email.com");
+        Edit.editContact(newData,contactBook);
         assertEquals("email@email.com", contactBook.getContactBook().get(0).getEmail(), "Test failed");
     }
 }

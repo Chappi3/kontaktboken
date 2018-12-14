@@ -82,4 +82,30 @@ class ListerTest {
                 , outContent.toString());
 
     }
+
+    @Test
+    void longnameTest() {
+        ContactBook contactBook = new ContactBook();
+        contactBook.getContactBook().add(new Contact("Hjalmar", "Långtefternamn asassasasasasasasasasasas", "0709", "email@email.com"));
+        Lister.list(contactBook);
+        assertEquals(System.getProperty("line.separator") +
+                        "Nr     First Name                Last Name                 Phone                     Email                    " + System.getProperty("line.separator") +
+                        "1      Hjalmar                   Långtefternamn asassas... 0709                      email@email.com          "
+                        + System.getProperty("line.separator")
+                , outContent.toString());
+
+
+    }
+
+    @Test
+    void longNameTest2() {
+        ContactBook contactBook2 = new ContactBook();
+        contactBook2.getContactBook().add(new Contact("Hjalmar HjalmarHjalmar  Hjalmar Hjalmar Hjalmar", "Långtefternamn Asassasasasasasasasasasas", "0709", "email@email.com"));
+        Lister.list(contactBook2);
+        assertEquals(System.getProperty("line.separator") +
+                        "Nr     First Name                Last Name                 Phone                     Email                    " + System.getProperty("line.separator") +
+                        "1      Hjalmar HjalmarHjalmar... Långtefternamn Asassas... 0709                      email@email.com          "
+                        + System.getProperty("line.separator")
+                , outContent.toString());
+    }
 }

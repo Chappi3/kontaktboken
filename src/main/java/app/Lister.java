@@ -70,11 +70,25 @@ public class Lister {
         }
     }
 
-    private static String prettyTruncate(String input) {
+    /**
+     * Truncates longer than 25 with '...' as suffix
+     *
+     * @param input String to truncate
+     * @return Truncated String
+     */
+    public static String prettyTruncate(String input) {
         return truncate(input, 25, "...");
     }
 
-    private static String truncate(String input, int length, String suffix) {
+    /**
+     * Truncates String
+     *
+     * @param input  String to truncate
+     * @param length Int max length
+     * @param suffix String suffix to add
+     * @return Truncated String
+     */
+    public static String truncate(String input, int length, String suffix) {
         if (input.length() < length)
             return input;
         return input.substring(0, length - suffix.length()).concat(suffix);

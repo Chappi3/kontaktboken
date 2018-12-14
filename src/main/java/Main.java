@@ -38,13 +38,8 @@ public class Main {
                 case "4":
                     System.out.println("\n --Find contact--");
                     String find = menu.searchMenu();
-//                    Search.contains(find, contactBook);--
-                    Search search = new Search();
-                    search.searchName(find, contactBook);
-                    search.searchLastName(find, contactBook);
-                    search.searchNumber(find, contactBook);
-                    search.searchEmail(find, contactBook);
-//                    Lister.printContains(find, contactBook);
+//                    Search.search(find, contactBook);
+//                    System.out.println(Lister.contains(find, contactBook));
                     break;
                 case "5":
                     Lister.list(contactBook);

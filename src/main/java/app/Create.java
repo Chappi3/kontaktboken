@@ -18,16 +18,10 @@ public class Create {
      *
      * @param contactBook The parameter where we store the contact
      */
-    public static void createContact(ContactBook contactBook) {
-
-        //Create a new menu object
-        Menu menu = new Menu();
-
-        //We put all the inputs (firstName, lastName, phoneNumber, email) from menu.createMenu() into an Array
-        String[] data = menu.createMenu();
+    public static void createContact(String[] input, ContactBook contactBook) {
 
         //Create a new contact and take the inputs from our Array as parameters for the contact
-        Contact contact = new Contact(data[0], data[1], data[2],data[3]);
+        Contact contact = new Contact(input[0], input[1], input[2],input[3]);
 
         //Add contact to contactBook
         contactBook.getContactBook().add(contact);

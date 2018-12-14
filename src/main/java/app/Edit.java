@@ -13,25 +13,24 @@ import domain.ContactBook;
 public class Edit {
 
     /**
-     * This method takes a contactBook that we send to editMenu to get the inputs to be used.
-     * The inputs are returned as an String[] called data.
+     * This method takes a String[] that contains data to be used to change a contact,
+     * it takes a contactBook that we use to get a contact from.
+     * This method is used to change a contacts information.
+     * The String[] called data contains:
      * data[0] is the contacts index in the contactBook.
      * data[1] is the contacts firstName.
      * data[2] is the contacts lastName.
      * data[3] is the contacts phoneNumber.
      * data[4] is the contacts mail.
      *
-     * @param contactBook Parameter to get a contact from.
+     * @param data is a String[] that contains an index, firstName, lastName, phoneNumber and an email.
+     * @param contactBook is where we get the contact from, using the index from data[0].
      */
 
     // Edits a contact
-    public static void editContact(ContactBook contactBook) {
+    public static void editContact(String[] data, ContactBook contactBook) {
 
-        String[] data; // 0 = index, 1 = firstName, 2 = lastName, 3 = phoneNumber, 4 = mail
-        Menu menu = new Menu();
-
-        // editMenu() returns a String[]
-        data = menu.editMenu(contactBook);
+        // data contains: 0 = index, 1 = firstName, 2 = lastName, 3 = phoneNumber, 4 = mail
 
         // contact to be edited
         Contact contact = contactBook.getContactBook().get(Integer.parseInt(data[0]));

@@ -3,26 +3,37 @@ import domain.ContactBook;
 import file.FileOperations;
 
 import java.io.IOException;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 /**
  * Main class start application
  *
- * @author Maksym
+ * @author Maksym, Hjalmar
  * @since 2018-12-01
  */
 
 public class Main {
     public static void main(String[] args) {
+        try {
+            start(args);
+        } catch (NoSuchElementException e) {
+
+        }
+
+        System.out.println("exit...");
+    }
+
+    public static void start(String[] args) {
         ContactBook contactBook = new ContactBook();
         String contactBookName;
         Menu menu = new Menu();
         Scanner sc = new Scanner(System.in);
         String choice = "";
-        do{
+        do {
             menu.mainMenu();
             choice = sc.nextLine();
-            switch(choice){
+            switch (choice) {
                 case "1":
                     System.out.println("\n --Create contact--");
                     Create.createContact(contactBook);
@@ -75,6 +86,5 @@ public class Main {
                     continue;
             }
         } while (!choice.equals("9"));
-        System.out.println("exit...");
     }
 }

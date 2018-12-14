@@ -4,27 +4,19 @@ import domain.Contact;
 import domain.ContactBook;
 import org.junit.jupiter.api.Test;
 
-
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class CreateTest {
     ContactBook contactBook = new ContactBook();
-    Contact contact;
-    String[] inputs;
-    String name = "Ilari";
-    String lastName = "Silander";
-    String number = "123456";
-    String email = "ilari@mail.se";
-
+    String[] inputs = {"Ilari", "Silander", "123456", "ilari@mail.se"};
 
     @Test
     void ContactHasCorrectVariables() {
-        inputs[0] = name;
-        inputs[1] = lastName;
-        inputs[2] = number;
-        inputs[3] = email;
 
-        contact = new Contact(inputs[0], inputs[1], inputs[2], inputs[3]);
+        Create.createContact(inputs, contactBook);
+
+        Contact contact = new Contact(inputs[0], inputs[1], inputs[2], inputs[3]);
 
         assertEquals("Ilari", contact.getFirstName());
         assertEquals("Silander", contact.getLastName());
@@ -35,9 +27,12 @@ class CreateTest {
 
     @Test
     void ContactBookTakesAContactIntoArrayList() {
+
+        Create.createContact(inputs, contactBook);
+
+        Contact contact = new Contact(inputs[0], inputs[1], inputs[2], inputs[3]);
         contactBook.getContactBook().add(contact);
 
-        assertEquals(1, contactBook.getContactBook().size());
-
+        assertTrue(contactBook.getContactBook().contains(contact));
     }
 }

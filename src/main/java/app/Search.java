@@ -13,6 +13,20 @@ import domain.ContactBook;
 public class Search {
 
     /**
+     * We use this method uses a String parameter and compares it to all the methods.
+     *
+     * @param find This parameter is the imput from the menu
+     * @param contactBook This parameter is the arrayList that we send to all the methods
+     */
+
+    public static void search(String find, ContactBook contactBook) {
+        searchName(find, contactBook);
+        searchLastName(find, contactBook);
+        searchNumber(find, contactBook);
+        searchEmail(find, contactBook);
+    }
+
+    /**
      * This method will take a first name of a contact, and search through a contact book (arrayList).
      * If the name matches a contact in the contact book, then the contact gets printed to console.
      *
@@ -20,7 +34,7 @@ public class Search {
      * @param contactBook This parameter is the arrayList that we will search through
      */
 
-    public void searchName(String name, ContactBook contactBook) {
+    public static void searchName(String name, ContactBook contactBook) {
         //Checks if the arrayList is empty or not
         if(!contactBook.getContactBook().isEmpty()) {
             //If the arrayList has a contact then it will loop through the list
@@ -44,7 +58,7 @@ public class Search {
      * @param contactBook This parameter is the arrayList that we will search through
      */
 
-    public void searchLastName(String lastName, ContactBook contactBook) {
+    public static void searchLastName(String lastName, ContactBook contactBook) {
         if(!contactBook.getContactBook().isEmpty()) {
             for(int i = 0; i < contactBook.getContactBook().size(); i++) {
                 contactBook.getContactBook().get(i);
@@ -65,7 +79,7 @@ public class Search {
      * @param contactBook This parameter is the arrayList that we will search through
      */
 
-    public void searchEmail(String email, ContactBook contactBook) {
+    public static void searchEmail(String email, ContactBook contactBook) {
         if(!contactBook.getContactBook().isEmpty()) {
             for(int i = 0; i < contactBook.getContactBook().size(); i++) {
                 contactBook.getContactBook().get(i);
@@ -86,7 +100,7 @@ public class Search {
      * @param contactBook This parameter is the arrayList that we will search through
      */
 
-    public void searchNumber(String number, ContactBook contactBook) {
+    public static void searchNumber(String number, ContactBook contactBook) {
         if(!contactBook.getContactBook().isEmpty()) {
             for(int i = 0; i < contactBook.getContactBook().size(); i++) {
                 contactBook.getContactBook().get(i);

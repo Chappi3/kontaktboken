@@ -3,7 +3,7 @@ package app;
 import domain.ContactBook;
 
 /**
- * Class for removing a contact from a contactBook
+ * Class for removing a contact from a contactBook.
  *
  * @author Tonny Frisk
  * @since 2018-12-12
@@ -12,18 +12,13 @@ import domain.ContactBook;
 public class Delete {
 
     /**
-     * This method takes a contactBook that we send to deleteMenu.
-     * deleteMenu returns an index that will be removed from contactBook.
+     * Removes a contact from a contactBook.
      *
-     * @param contactBook The parameter where we remove a contact from.
+     * @param index is the contacts index in the contactBook.
+     * @param contactBook is where the contact will be removed from.
      */
     // for removing a contact from the contactBook
-    public static void deleteContact(ContactBook contactBook) {
-        Menu menu = new Menu();
-        int index;
-
-        // gets index from deleteMenu
-        index = menu.deleteMenu(contactBook);
+    public static void deleteContact(int index, ContactBook contactBook) {
 
         // removes contact at index
         contactBook.getContactBook().remove(index);

@@ -35,18 +35,20 @@ public class Main {
             switch (choice) {
                 case "1":
                     System.out.println("\n --Create contact--");
-                    Create.createContact(new Menu().createMenu(), contactBook);
-//                    Create.createContact(contactBook);
+//                    Create.createContact(new Menu().createMenu(), contactBook);
+                    Create.createContact(contactBook);
                     break;
                 case "2":
                     System.out.println("\n --Edit contact--");
-                    Edit.editContact(new Menu().editMenu(contactBook), contactBook);
-//                    Edit.editContact(contactBook);
+                    Lister.list(contactBook);
+//                    Edit.editContact(new Menu().editMenu(contactBook), contactBook);
+                    Edit.editContact(contactBook);
                     break;
                 case "3":
                     System.out.println("\n --Delete contact--");
-                    Delete.deleteContact(new Menu().deleteMenu(contactBook), contactBook);
-//                    Delete.deleteContact(contactBook);
+                    Lister.list(contactBook);
+//                    Delete.deleteContact(new Menu().deleteMenu(contactBook), contactBook);
+                    Delete.deleteContact(contactBook);
                     break;
                 case "4":
                     System.out.println("\n --Find contact--");

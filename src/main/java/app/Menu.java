@@ -107,10 +107,13 @@ public class Menu {
     //return (index, first name, second name, phone number, email) som String[]
     public String[] editMenu(ContactBook contactBook){
         String[] data = new String[5];
+        System.out.println();
         while(true) {
-            System.out.print("Enter contact index: ");
+            System.out.print("Enter contact index(press '0' for exit): ");
             input = sc.nextLine();
-            if (input.matches("[0-9]+")) {
+            if (input.equals("0")) {
+                return null;
+            } else if (input.matches("[0-9]+")) {
                 index = Integer.parseInt(input) - 1;
                 if(index < contactBook.getContactBook().size()) {
                     firstName = contactBook.getContactBook().get(index).getFirstName();

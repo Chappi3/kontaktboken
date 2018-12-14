@@ -42,6 +42,7 @@ public class Search {
                 contactBook.getContactBook().get(i);
                 //This checks every contact and compares the parameters, if equal, then the contact gets printed
                 if(contactBook.getContactBook().get(i).getFirstName().equals(name)) {
+                    System.out.println("Index: " + (i + 1));
                     System.out.println(contactBook.getContactBook().get(i));
                 }
             }
@@ -63,6 +64,7 @@ public class Search {
             for(int i = 0; i < contactBook.getContactBook().size(); i++) {
                 contactBook.getContactBook().get(i);
                 if(contactBook.getContactBook().get(i).getLastName().equals(lastName)) {
+                    System.out.println("Index: " + (i + 1));
                     System.out.println(contactBook.getContactBook().get(i));
                 }
             }
@@ -84,6 +86,7 @@ public class Search {
             for(int i = 0; i < contactBook.getContactBook().size(); i++) {
                 contactBook.getContactBook().get(i);
                 if(contactBook.getContactBook().get(i).getEmail().equals(email)) {
+                    System.out.println("Index: " + (i + 1));
                     System.out.println(contactBook.getContactBook().get(i));
                 }
             }
@@ -105,6 +108,7 @@ public class Search {
             for(int i = 0; i < contactBook.getContactBook().size(); i++) {
                 contactBook.getContactBook().get(i);
                 if(contactBook.getContactBook().get(i).getPhoneNumber().equals(number)) {
+                    System.out.println("Index: " + (i + 1));
                     System.out.println(contactBook.getContactBook().get(i));
                 }
             }

@@ -20,7 +20,7 @@ public class Search {
      * @param contactBook This parameter is the arrayList that we will search through
      */
 
-    public void searchName(String name, ContactBook contactBook) {
+    public static void searchName(String name, ContactBook contactBook) {
         //Checks if the arrayList is empty or not
         if(!contactBook.getContactBook().isEmpty()) {
             //If the arrayList has a contact then it will loop through the list
@@ -44,7 +44,7 @@ public class Search {
      * @param contactBook This parameter is the arrayList that we will search through
      */
 
-    public void searchLastName(String lastName, ContactBook contactBook) {
+    public static void searchLastName(String lastName, ContactBook contactBook) {
         if(!contactBook.getContactBook().isEmpty()) {
             for(int i = 0; i < contactBook.getContactBook().size(); i++) {
                 contactBook.getContactBook().get(i);
@@ -65,7 +65,7 @@ public class Search {
      * @param contactBook This parameter is the arrayList that we will search through
      */
 
-    public void searchEmail(String email, ContactBook contactBook) {
+    public static void searchEmail(String email, ContactBook contactBook) {
         if(!contactBook.getContactBook().isEmpty()) {
             for(int i = 0; i < contactBook.getContactBook().size(); i++) {
                 contactBook.getContactBook().get(i);
@@ -86,7 +86,7 @@ public class Search {
      * @param contactBook This parameter is the arrayList that we will search through
      */
 
-    public void searchNumber(String number, ContactBook contactBook) {
+    public static void searchNumber(String number, ContactBook contactBook) {
         if(!contactBook.getContactBook().isEmpty()) {
             for(int i = 0; i < contactBook.getContactBook().size(); i++) {
                 contactBook.getContactBook().get(i);

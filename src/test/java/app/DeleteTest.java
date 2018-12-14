@@ -17,9 +17,10 @@ class DeleteTest {
     // checks if a contact is removed correctly
     @Test
     void doesContactGetRemovedCorrectly() {
+        int index = 0;
         contactBook.getContactBook().add(contact);
         contactBook.getContactBook().add(contact);
-        contactBook.getContactBook().remove(0);
+        Delete.deleteContact(index, contactBook);
         assertEquals(1, contactBook.getContactBook().size(), "Test failed");
     }
 }

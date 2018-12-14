@@ -2,10 +2,9 @@ package util;
 
 import domain.Contact;
 import domain.ContactBook;
+import file.FileOperations;
 
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
@@ -15,6 +14,7 @@ import java.util.stream.Collectors;
  * Class for creating random contacts
  * samples/firstnames.txt, samples/lastnames.txt and samples/emails.txt are gathered
  * from randomlists.com
+ *
  * @author hjalmar
  * @since 2018-12-12
  */
@@ -37,7 +37,7 @@ public class FakeContacts {
      * @return List with contacts
      */
     public static List<Contact> createContacts(int size) {
-        return contacts(size, lines("samples/firstnames.txt"), lines("samples/lastnames.txt"), lines("samples/emails.txt"));
+        return contacts(size, lines("firstnames.txt"), lines("lastnames.txt"), lines("emails.txt"));
     }
 
     /**
@@ -69,13 +69,19 @@ public class FakeContacts {
      * @return List of lines from file
      */
     public static List<String> lines(String fileName) {
-        InputStream resourceAsStream = CLASS_LOADER.getResourceAsStream(fileName);
-        if (resourceAsStream == null)
+        try {
+
+
+            InputStream resourceAsStream = new FileInputStream(FileOperations.path + fileName);
+            if (resourceAsStream == null)
+                return new ArrayList<>();
+
+            return new BufferedReader(new InputStreamReader(resourceAsStream))
+                    .lines().collect(Collectors.toList());
+        } catch (FileNotFoundException e) {
+            System.err.println(e.getMessage());
             return new ArrayList<>();
-
-        return new BufferedReader(new InputStreamReader(resourceAsStream))
-                .lines().collect(Collectors.toList());
-
+        }
     }
 
 }

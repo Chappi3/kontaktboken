@@ -127,9 +127,9 @@ class FileOperationsTest {
     @Test
     void testSampleFile1000() {
         try {
-            System.out.println(new File(this.getClass().getClassLoader().getResource("samples" + File.separator + "contacts1000.json").getFile()));
-            File file = new File(this.getClass().getClassLoader().getResource("samples" + File.separator + "contacts1000.json").getFile());
-            ContactBook fromJson = FileOperations.loadFromJson("samples" + File.separator + "contacts1000.json");
+            System.out.println(new File("contacts1000.json"));
+            File file = new File("contacts1000.json");
+            ContactBook fromJson = FileOperations.loadFromJson("contacts1000.json");
             assertEquals(1000, fromJson.getContactBook().size());
         } catch (IOException e) {
             e.printStackTrace();

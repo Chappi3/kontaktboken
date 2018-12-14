@@ -103,9 +103,10 @@ public class FileOperations {
      *
      * @author Maksym
      * @since 2018-12-01
+     * @return List of file name in /samples directory
      */
     public List<String> getNamesOfContactBooks() {
-        List<String> results = new ArrayList<String>();
+        List<String> results = new ArrayList<>();
         File[] files = new File(path).listFiles();
         for (File file : files) {
             if (file.isFile()) {

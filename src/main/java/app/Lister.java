@@ -66,7 +66,31 @@ public class Lister {
         System.out.printf(format, "Nr", "First Name", "Last Name", "Phone", "Email");
         int i = 1;
         for (Contact contact : contacts) {
-            System.out.printf(format, (i++), contact.getFirstName(), contact.getLastName(), contact.getPhoneNumber(), contact.getEmail());
+            System.out.printf(format, (i++), prettyTruncate(contact.getFirstName()), prettyTruncate(contact.getLastName()), contact.getPhoneNumber(), contact.getEmail());
         }
+    }
+
+    /**
+     * Truncates longer than 25 with '...' as suffix
+     *
+     * @param input String to truncate
+     * @return Truncated String
+     */
+    public static String prettyTruncate(String input) {
+        return truncate(input, 25, "...");
+    }
+
+    /**
+     * Truncates String
+     *
+     * @param input  String to truncate
+     * @param length Int max length
+     * @param suffix String suffix to add
+     * @return Truncated String
+     */
+    public static String truncate(String input, int length, String suffix) {
+        if (input.length() < length)
+            return input;
+        return input.substring(0, length - suffix.length()).concat(suffix);
     }
 }

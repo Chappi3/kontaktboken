@@ -13,6 +13,20 @@ import domain.ContactBook;
 public class Search {
 
     /**
+     * We use this method uses a String parameter and compares it to all the methods.
+     *
+     * @param find This parameter is the imput from the menu
+     * @param contactBook This parameter is the arrayList that we send to all the methods
+     */
+
+    public static void search(String find, ContactBook contactBook) {
+        searchName(find, contactBook);
+        searchLastName(find, contactBook);
+        searchNumber(find, contactBook);
+        searchEmail(find, contactBook);
+    }
+
+    /**
      * This method will take a first name of a contact, and search through a contact book (arrayList).
      * If the name matches a contact in the contact book, then the contact gets printed to console.
      *

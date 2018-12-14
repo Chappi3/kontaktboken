@@ -53,6 +53,7 @@ public class Menu {
         while(true){
             System.out.print("First name: ");
             input = sc.nextLine();
+            returnToMainMenu();
             if (Validator.checkName(input)) {
                 return nameFormatCorrector(input);
             }
@@ -64,6 +65,7 @@ public class Menu {
         while(true){
             System.out.print("Last name: ");
             input = sc.nextLine();
+            returnToMainMenu();
             if(Validator.checkName(input)){
                 return nameFormatCorrector(input);
             }
@@ -75,6 +77,7 @@ public class Menu {
         while(true){
             System.out.print("Phone number: ");
             input = sc.nextLine();
+            returnToMainMenu();
             if(Validator.checkPhoneNumber(input)){
                 return input;
             }
@@ -86,6 +89,7 @@ public class Menu {
         while(true){
             System.out.print("Email: ");
             input = sc.nextLine();
+            returnToMainMenu();
             if(Validator.checkEmail(input)){
                 return input;
             }
@@ -95,6 +99,7 @@ public class Menu {
     //menu for contact creator, asking for contact fields while it's not valid, return checked
     //return (first name, second name, phone number, email) som String[]
     public String[] createMenu(){
+        System.out.println("(press '0' for exit)");
         firstName = inputFirstName();
         lastName = inputLastName();
         phoneNumber = inputPhoneNumber();
@@ -109,11 +114,10 @@ public class Menu {
         String[] data = new String[5];
         System.out.println();
         while(true) {
-            System.out.print("Enter contact index(press '0' for exit): ");
+            System.out.print("Enter contact index (press '0' for exit): ");
             input = sc.nextLine();
-            if (input.equals("0")) {
-                throw new NullPointerException();
-            } else if (input.matches("[0-9]+")) {
+            returnToMainMenu();
+            if (input.matches("[0-9]+")) {
                 index = Integer.parseInt(input) - 1;
                 if(index < contactBook.getContactBook().size()) {
                     firstName = contactBook.getContactBook().get(index).getFirstName();
@@ -160,11 +164,10 @@ public class Menu {
         String[] data = new String[5];
         System.out.println();
         while(true) {
-            System.out.print("Enter contact index(press '0' for exit): ");
+            System.out.print("Enter contact index (press '0' for exit): ");
             input = sc.nextLine();
-            if (input.equals("0")) {
-                throw new NullPointerException();
-            } else if (input.matches("[0-9]+")) {
+            returnToMainMenu();
+            if (input.matches("[0-9]+")) {
                 index = Integer.parseInt(input) - 1;
                 if(index < contactBook.getContactBook().size()) {
                     return index;
@@ -178,16 +181,15 @@ public class Menu {
     public String searchMenu() {
         System.out.print("Search (press '0' for exit): ");
         input = sc.nextLine();
-        if (input.equals("0")) {
-            throw new NullPointerException();
-        }
+        returnToMainMenu();
         return input;
     }
 
     //meu for saving contact book to json file
     public String saveMenu() {
-        System.out.print("Save contact book as: ");
+        System.out.print("Save contact book as (press '0' for exit): ");
         input = sc.nextLine();
+        returnToMainMenu();
         return input.toLowerCase() + ".json";
     }
 
@@ -200,14 +202,21 @@ public class Menu {
             System.out.println(++i + ". " + book);
         }
         do {
-            System.out.print("\nChoose contact book: ");
+            System.out.print("\nChoose contact book (press '0' for exit): ");
             input = sc.nextLine();
-            if ((input.matches("[0-9]+")) && (Integer.parseInt(input) <= contactBooks.size())) {
+            returnToMainMenu();
+            if ((input.matches("[1-9]+")) && (Integer.parseInt(input) <= contactBooks.size())) {
                 break;
             }
             System.out.println("invalid input, choose between " + 1 + " and " + contactBooks.size());
         } while (true);
         String contactBookName = contactBooks.get(Integer.parseInt(input) - 1);
         return contactBookName + ".json";
+    }
+
+    public void returnToMainMenu() {
+        if (input.equals("0")) {
+            throw new NullPointerException();
+        }
     }
 }

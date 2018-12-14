@@ -35,7 +35,10 @@ public class Main {
             switch (choice) {
                 case "1":
                     System.out.println("\n --Create contact--");
-                    Create.createContact(new Menu().createMenu(), contactBook);
+                    try {
+                        Create.createContact(new Menu().createMenu(), contactBook);
+                    } catch (NullPointerException e) {
+                    }
                     break;
                 case "2":
                     System.out.println("\n --Edit contact--");
@@ -76,6 +79,7 @@ public class Main {
                         break;
                     } catch (IOException e) {
                         System.out.println("Saving failed, try again");
+                    } catch (NullPointerException e) {
                     }
                 case "8":
                     System.out.println("\n --Load contact book--");
@@ -85,6 +89,7 @@ public class Main {
                         break;
                     } catch (IOException e) {
                         System.out.println("Loading failed, try again");
+                    } catch (NullPointerException e) {
                     }
                 default:
                     continue;

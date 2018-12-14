@@ -39,13 +39,19 @@ public class Main {
                     break;
                 case "2":
                     System.out.println("\n --Edit contact--");
-                    Lister.list(contactBook);
-                    Edit.editContact(new Menu().editMenu(contactBook), contactBook);
+                    try {
+                        Lister.list(contactBook);
+                        Edit.editContact(new Menu().editMenu(contactBook), contactBook);
+                    } catch (NullPointerException e) {
+                    }
                     break;
                 case "3":
                     System.out.println("\n --Delete contact--");
-                    Lister.list(contactBook);
-                    Delete.deleteContact(new Menu().deleteMenu(contactBook), contactBook);
+                    try {
+                        Lister.list(contactBook);
+                        Delete.deleteContact(new Menu().deleteMenu(contactBook), contactBook);
+                    } catch (NullPointerException e) {
+                    }
                     break;
                 case "4":
                     System.out.println("\n --Find contact--");

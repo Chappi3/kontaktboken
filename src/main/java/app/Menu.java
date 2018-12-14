@@ -112,7 +112,7 @@ public class Menu {
             System.out.print("Enter contact index(press '0' for exit): ");
             input = sc.nextLine();
             if (input.equals("0")) {
-                mainMenu();
+                throw new NullPointerException();
             } else if (input.matches("[0-9]+")) {
                 index = Integer.parseInt(input) - 1;
                 if(index < contactBook.getContactBook().size()) {
@@ -158,11 +158,12 @@ public class Menu {
     //return int index
     public int deleteMenu(ContactBook contactBook){
         String[] data = new String[5];
+        System.out.println();
         while(true) {
             System.out.print("Enter contact index(press '0' for exit): ");
             input = sc.nextLine();
             if (input.equals("0")) {
-                mainMenu();
+                throw new NullPointerException();
             } else if (input.matches("[0-9]+")) {
                 index = Integer.parseInt(input) - 1;
                 if(index < contactBook.getContactBook().size()) {

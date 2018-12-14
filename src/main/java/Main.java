@@ -17,11 +17,11 @@ public class Main {
     public static void main(String[] args) {
         try {
             start(args);
+            System.out.println("Exit...");
         } catch (NoSuchElementException e) {
-
+            System.out.println(System.getProperty("line.separator") + "Abrupt exit...");
         }
 
-        System.out.println("exit...");
     }
 
     public static void start(String[] args) {

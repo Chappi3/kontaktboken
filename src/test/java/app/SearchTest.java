@@ -11,6 +11,15 @@ import java.io.PrintStream;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+/**
+ * This test runs at a 100% Class, 80% Method, 86% Line coverage. The one method that is skipped is
+ * only calling the methods in the Search class that are already tested with 100% coverage.
+ *
+ * @author Ilari Silander
+ * @version 1.0
+ * @since 2018-12-16
+ */
+
 class SearchTest {
 
     ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -42,7 +51,7 @@ class SearchTest {
 
     }
 
-    @Test //Checks if the index number 0 is a contact and if it contains (getter) a string "silander"
+    @Test
     void DoesContactBookIndexZeroGetLastNameContainCorrectLastName() {
         String testInput = "silander";
         contactBook.getContactBook().add(contact);
@@ -51,7 +60,7 @@ class SearchTest {
         assertTrue(baos.toString().contains("silander"),"Should contain: 'silander'");
     }
 
-    @Test //Checks if the index number 0 is a contact and if it contains (getter) a string "email@email.se"
+    @Test
     void DoesContactBookIndexZeroGetEmailNameContainTheCorrectEmail() {
         String testInput = "email@email.se";
         contactBook.getContactBook().add(contact);
@@ -60,7 +69,7 @@ class SearchTest {
         assertTrue(baos.toString().contains("email@email.se"),"Should contain: 'email@email.se'");
     }
 
-    @Test //Checks if the index number 0 is a contact and if it contains (getter) a string "123456"
+    @Test
     void DoesContactBookIndexZeroGetNumberContainTheCorrectNumber() {
         String testInput = "123456";
         contactBook.getContactBook().add(contact);

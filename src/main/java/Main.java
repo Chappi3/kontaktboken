@@ -8,12 +8,12 @@ import java.util.Scanner;
 
 /**
  * Main class start application
- *
  * @author Maksym, Hjalmar
  * @since 2018-12-01
  */
 
 public class Main {
+
     /**
      * Start current application
      */

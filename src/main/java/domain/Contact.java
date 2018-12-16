@@ -3,22 +3,30 @@ package domain;
 import java.io.Serializable;
 
 /**
- * Class consisting all contact data
- *
+ * Class containing all data about contact
  * @author Maksym
  * @since 2018-12-01
  */
 
 public class Contact implements Serializable {
-    //Serializable interface required
-    private static final long serialVersionUID = 6841681686311138743L;
-    //Fields
+    /**
+     * Fields
+     *
+     * @param firstName is contact first name
+     * @param lastName is contact last name
+     * @param phoneNumber is contact phone number
+     * @param email is contact email
+     * @param serialVersionUID is uniq number, Serializable interface required
+     */
     private String firstName;
     private String lastName;
     private String phoneNumber;
     private String email;
+    private static final long serialVersionUID = 6841681686311138743L;
 
-    //Constructor
+    /**
+     * Constructor
+     */
     public Contact(String firstName, String lastName, String phoneNumber, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -26,7 +34,11 @@ public class Contact implements Serializable {
         this.email = email;
     }
 
-    //Use equals for comparing Contact with another Contact, email uniq
+    /**
+     * Make Contact comparable, possible use equals like on java object class
+     * @param obj is contact instance
+     * @return boolean
+     */
     @Override
     public boolean equals(Object obj) {
         if (obj == this) {
@@ -39,13 +51,19 @@ public class Contact implements Serializable {
         return getEmail().equals(obj2.getEmail());
     }
 
-    //make possibility to compare contact as java object
+    /**
+     * standart java hash method
+     * @return number
+     */
     @Override
     public int hashCode() {
         return java.util.Objects.hash(getEmail());
     }
 
-    //return contact info in readable format
+    /**
+     * Transform all contact data to readable format
+     * @return contact info as text
+     */
     @Override
     public String toString() {
         return "Name: " + getFirstName() + ' ' + getLastName() + '\n' +
@@ -53,7 +71,9 @@ public class Contact implements Serializable {
                 "Email: " + getEmail();
     }
 
-    //Getters & setters
+    /**
+     * Getters and setters, set and collect data for each contact field
+     */
     public String getFirstName() {
         return firstName;
     }

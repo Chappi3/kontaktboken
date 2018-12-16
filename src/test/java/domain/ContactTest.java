@@ -6,7 +6,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Class check if class Contact work correct
- *
  * @author Maksym
  * @since 2018-12-01
  */

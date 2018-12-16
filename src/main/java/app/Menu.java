@@ -8,7 +8,6 @@ import java.util.Scanner;
 
 /**
  * Class consisting all menus for command line input
- *
  * @author Maksym
  * @since 2018-12-01
  */

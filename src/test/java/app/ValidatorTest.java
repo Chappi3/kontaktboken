@@ -6,7 +6,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * Class check if class Validator work correct
- *
  * @author Maksym
  * @since 2018-12-01
  */

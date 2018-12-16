@@ -2,13 +2,18 @@ package app;
 
 /**
  * Class check all user input
- *
  * @author Maksym
  * @since 2018-12-01
  */
 
 public class Validator {
-    //Check first or last name
+
+    /**
+     * check if name contains letters only
+     *
+     * @param input get input from user
+     * @return true if name is valid, otherwise false
+     */
     public static boolean checkName(String input){
         if (input.toLowerCase().matches("[a-z ]+")) {
             return true;
@@ -17,7 +22,11 @@ public class Validator {
         return false;
     }
 
-    //Check phone number (numbers only)
+    /**
+     * check if phone number contains numbers only
+     * @param input get input from user
+     * @return true if phone number is valid, otherwise false
+     */
     public static boolean checkPhoneNumber(String input){
         if (input.matches("[0-9]+")) {
             return true;
@@ -26,7 +35,11 @@ public class Validator {
         return false;
     }
 
-    //Check emil (ex. "one.team@gmail.com")
+    /**
+     * check if email has valid format
+     * @param input get input from user
+     * @return true if email is valid, otherwise false
+     */
     public static boolean checkEmail(String input){
         if (input.toLowerCase().matches("[a-z0-9.-_+%]+[@][a-z]+[.][a-z]+")) {
             return true;

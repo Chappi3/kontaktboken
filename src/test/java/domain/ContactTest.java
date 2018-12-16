@@ -12,8 +12,14 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 
 class ContactTest {
+    /**
+     * field
+     */
     Contact contact = new Contact("Maks", "G", "56576687", "maks@mail.com");
 
+    /**
+     *test if equals() work correct
+     */
     @Test
     void equals() {
         assertTrue(contact.equals(contact));
@@ -39,7 +45,9 @@ class ContactTest {
 //        assertEquals(contact.toString(), s);
 //    }
 
-    //Check inserting/getting value from firstName
+    /**
+     *Check inserting/getting value from firstName
+     */
     @Test
     void firstNameSetterAndGetter() {
         contact.setFirstName("newMaks");

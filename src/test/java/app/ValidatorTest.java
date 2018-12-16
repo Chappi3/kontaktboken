@@ -12,6 +12,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  */
 
 class ValidatorTest {
+    /**
+     * Check if name validator work correct on right input
+     */
     @Test
     void checkValidName() {
         Validator validator = new Validator();
@@ -19,6 +22,10 @@ class ValidatorTest {
         boolean result = validator.checkName(name);
         assertEquals(result, true);
     }
+
+    /**
+     *Check if name validator work correct on wrong input
+     */
     @Test
     void checkNotValidName() {
         Validator validator = new Validator();
@@ -26,6 +33,10 @@ class ValidatorTest {
         boolean result = validator.checkName(name);
         assertEquals(result, false);
     }
+
+    /**
+     *Check if phone number validator work correct on right input
+     */
     @Test
     void checkValidPhoneNumber() {
         Validator validator = new Validator();
@@ -33,6 +44,10 @@ class ValidatorTest {
         boolean result = validator.checkPhoneNumber(phoneNumber);
         assertEquals(result, true);
     }
+
+    /**
+     *Check if phone number validator work correct on wrong input
+     */
     @Test
     void checkNotValidPhoneNumber() {
         Validator validator = new Validator();
@@ -40,6 +55,10 @@ class ValidatorTest {
         boolean result = validator.checkPhoneNumber(phoneNumber);
         assertEquals(result, false);
     }
+
+    /**
+     *Check if email validator work correct on right input
+     */
     @Test
     void checkValidEmail() {
         Validator validator = new Validator();
@@ -47,6 +66,10 @@ class ValidatorTest {
         boolean result = validator.checkEmail(email);
         assertEquals(result, true);
     }
+
+    /**
+     *Check if email validator work correct on wrong input
+     */
     @Test
     void checkNotValidEmail() {
         Validator validator = new Validator();

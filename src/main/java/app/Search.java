@@ -13,7 +13,7 @@ import domain.ContactBook;
 public class Search {
 
     /**
-     * We use this method uses a String parameter and compares it to all the methods.
+     * This method uses a String parameter and compares it to all the methods.
      *
      * @param find This parameter is the imput from the menu
      * @param contactBook This parameter is the arrayList that we send to all the methods

@@ -14,25 +14,22 @@ class CreateTest {
     @Test
     void ContactHasCorrectVariables() {
 
+        Contact contact = new Contact(inputs[0], inputs[1], inputs[2], inputs[3]);
         Create.createContact(inputs, contactBook);
 
-        Contact contact = new Contact(inputs[0], inputs[1], inputs[2], inputs[3]);
-
-        assertEquals("Ilari", contact.getFirstName());
-        assertEquals("Silander", contact.getLastName());
-        assertEquals("123456", contact.getPhoneNumber());
-        assertEquals("ilari@mail.se", contact.getEmail());
+        assertEquals("Ilari", contact.getFirstName(), "Should be: Ilari");
+        assertEquals("Silander", contact.getLastName(), "Should be: Silander");
+        assertEquals("123456", contact.getPhoneNumber(), "Should be: 123456");
+        assertEquals("ilari@mail.se", contact.getEmail(), "Should be: ilari@mail.se");
 
     }
 
     @Test
-    void ContactBookTakesAContactIntoArrayList() {
-
+void ContactBookTakesAContactIntoArrayList() {
+        Contact contact = new Contact(inputs[0], inputs[1], inputs[2], inputs[3]);
         Create.createContact(inputs, contactBook);
 
-        Contact contact = new Contact(inputs[0], inputs[1], inputs[2], inputs[3]);
-        contactBook.getContactBook().add(contact);
-
-        assertTrue(contactBook.getContactBook().contains(contact));
+        assertEquals(1, contactBook.getContactBook().size());
+        assertTrue(contactBook.getContactBook().contains(contact), "Should be: True");
     }
 }

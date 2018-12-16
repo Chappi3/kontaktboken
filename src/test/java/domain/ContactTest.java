@@ -13,12 +13,12 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ContactTest {
     /**
-     * field
+     * Field
      */
     Contact contact = new Contact("Maks", "G", "56576687", "maks@mail.com");
 
     /**
-     *test if equals() work correct
+     *Check if equals() work correct
      */
     @Test
     void equals() {
@@ -30,23 +30,29 @@ class ContactTest {
         assertEquals(contact.getEmail(), contact2.getEmail());
     }
 
-//    @Test
-//    void hashCode() {
-//        int a = java.util.Objects.hash(contact.getEmail());
-//        int b = contact.hashCode();
-//        assertEquals(a, b);
-//    }
-
-//    @Test
-//    void toString() {
-//        String s = "Name: " + contact.getFirstName() + ' ' + contact.getLastName() + '\n' +
-//                   "Phone: " + contact.getPhoneNumber() + '\n' +
-//                   "Email: " + contact.getEmail();
-//        assertEquals(contact.toString(), s);
-//    }
+    /**
+     * Check if hashCode return right value
+     */
+    @Test
+    void TestHashCode() {
+        int a = java.util.Objects.hash(contact.getEmail());
+        int b = contact.hashCode();
+        assertEquals(a, b);
+    }
 
     /**
-     *Check inserting/getting value from firstName
+     * Testing toString() for Contact
+     */
+    @Test
+    void TestToString() {
+        String s = "Name: " + contact.getFirstName() + ' ' + contact.getLastName() + '\n' +
+                "Phone: " + contact.getPhoneNumber() + '\n' +
+                "Email: " + contact.getEmail();
+        assertEquals(contact.toString(), s);
+    }
+
+    /**
+     *Check inserting and getting value from first name
      */
     @Test
     void firstNameSetterAndGetter() {
@@ -54,30 +60,43 @@ class ContactTest {
         assertEquals(contact.getFirstName(), "newMaks");
     }
 
-    //Check inserting/getting value from lastName
+    /**
+     *Check inserting and getting value from last name
+     */
     @Test
     void lastNameSetterAndGetter() {
         contact.setLastName("newG");
         assertEquals(contact.getLastName(), "newG");
     }
 
-
+    /**
+     *Check if get value from phone number
+     */
     @Test
     void getPhoneNumber() {
         assertEquals(contact.getPhoneNumber(), "56576687");
     }
 
+    /**
+     *Check if insert value for last name
+     */
     @Test
     void setPhoneNumber() {
         contact.setPhoneNumber("078888");
         assertEquals("078888", contact.getPhoneNumber());
     }
 
+    /**
+     *Check if get value from email
+     */
     @Test
     void getEmail() {
         assertEquals(contact.getEmail(), "maks@mail.com");
     }
 
+    /**
+     *Check if set value to email
+     */
     @Test
     void setEmail() {
         contact.setEmail("newmaks@mail.com");

@@ -14,6 +14,9 @@ import java.util.Scanner;
  */
 
 public class Main {
+    /**
+     * Start current application
+     */
     public static void main(String[] args) {
         try {
             start(args);
@@ -23,6 +26,9 @@ public class Main {
         }
     }
 
+    /**
+     * Main menu with all possible contact operations
+     */
     public static void start(String[] args) {
         ContactBook contactBook = new ContactBook();
         String contactBookName;

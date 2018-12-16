@@ -24,7 +24,7 @@ class ValidatorTest {
     }
 
     /**
-     *Check if name validator work correct on wrong input
+     * Check if name validator work correct on wrong input
      */
     @Test
     void checkNotValidName() {
@@ -35,7 +35,7 @@ class ValidatorTest {
     }
 
     /**
-     *Check if phone number validator work correct on right input
+     * Check if phone number validator work correct on right input
      */
     @Test
     void checkValidPhoneNumber() {
@@ -46,7 +46,7 @@ class ValidatorTest {
     }
 
     /**
-     *Check if phone number validator work correct on wrong input
+     * Check if phone number validator work correct on wrong input
      */
     @Test
     void checkNotValidPhoneNumber() {
@@ -57,7 +57,7 @@ class ValidatorTest {
     }
 
     /**
-     *Check if email validator work correct on right input
+     * Check if email validator work correct on right input
      */
     @Test
     void checkValidEmail() {
@@ -68,7 +68,7 @@ class ValidatorTest {
     }
 
     /**
-     *Check if email validator work correct on wrong input
+     * Check if email validator work correct on wrong input
      */
     @Test
     void checkNotValidEmail() {

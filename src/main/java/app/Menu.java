@@ -14,7 +14,9 @@ import java.util.Scanner;
  */
 
 public class Menu {
-    //fields
+    /**
+     * Fields
+     */
     String firstName = "";
     String lastName = "";
     String phoneNumber = "";
@@ -23,7 +25,9 @@ public class Menu {
     String input = "";
     int index;
 
-    //print main menu
+    /**
+     * Print main menu
+     */
     public void mainMenu(){
         System.out.println("\n_______ MENU ________");
         System.out.println("1. Create contact    |");
@@ -38,7 +42,14 @@ public class Menu {
         System.out.println("_____________________|");
     }
 
-    //name format corrector, ex. in:"daVid dRESden" out:"David Dresden"
+
+    /**
+     * Take name in upper or lower format and correct to capitalized readable format,
+     * example:"daVid dRESden" out:"David Dresden"
+     *
+     * @param input take user input
+     * @return name in readable format
+     */
     public String nameFormatCorrector(String input) {
         String[] splitedInput = input.trim().split("\\s+");
         String result = splitedInput[0].substring(0, 1).toUpperCase() + splitedInput[0].substring(1).toLowerCase();
@@ -48,7 +59,10 @@ public class Menu {
         return result;
     }
 
-    //asking for first name while it's not valid, return checked
+    /**
+     * Get input from user for first name, if '0' return to main menu
+     * @return checked first name in readable format
+     */
     public String inputFirstName(){
         while(true){
             System.out.print("First name: ");
@@ -60,7 +74,10 @@ public class Menu {
         }
     }
 
-    //asking for last name while it's not valid, return checked
+    /**
+     * Get input from user for last name, if '0' return to main menu
+     * @return checked last name in readable format
+     */
     public String inputLastName(){
         while(true){
             System.out.print("Last name: ");
@@ -72,7 +89,10 @@ public class Menu {
         }
     }
 
-    //asking for phone number while it's not valid, return checked
+    /**
+     * Get input from user for phone number, if '0' return to main menu
+     * @return checked phone number
+     */
     public String inputPhoneNumber(){
         while(true){
             System.out.print("Phone number: ");
@@ -84,7 +104,10 @@ public class Menu {
         }
     }
 
-    //asking for email while it's not valid, return checked
+    /**
+     * Get input from user for email, if '0' return to main menu
+     * @return checked email
+     */
     public String inputEmail(){
         while(true){
             System.out.print("Email: ");
@@ -96,8 +119,11 @@ public class Menu {
         }
     }
 
-    //menu for contact creator, asking for contact fields while it's not valid, return checked
-    //return (first name, second name, phone number, email) som String[]
+    /**
+     * Menu for contact creator, asking for contact fields while it's not valid, return checked
+     * on '0' back to main menu
+     * @return (first name, second name, phone number, email) som String[]
+     */
     public String[] createMenu(){
         System.out.println("(press '0' for exit)");
         firstName = inputFirstName();
@@ -108,8 +134,13 @@ public class Menu {
         return data;
     }
 
-    //menu for contact editor, asking for contact index while it's not valid, return checked new fields and index
-    //return (index, first name, second name, phone number, email) som String[]
+    /**
+     * Menu for contact editor, asking for contact index in the list and all fields
+     * while it's not valid, return checked
+     * on '0' back to main menu
+     * @param contactBook list with all contacts
+     * @return (index, first name, second name, phone number, email) som String[]
+     */
     public String[] editMenu(ContactBook contactBook){
         String[] data = new String[5];
         System.out.println();
@@ -158,8 +189,13 @@ public class Menu {
         return data;
     }
 
-    //menu for contact deleting, asking for contact index while it's not valid, return index
-    //return int index
+    /**
+     * Menu for contact deleting, asking for contact index
+     * while it's not valid
+     * on '0' back to main menu
+     * @param contactBook list with all contacts
+     * @return contact index som int
+     */
     public int deleteMenu(ContactBook contactBook){
         String[] data = new String[5];
         System.out.println();
@@ -178,6 +214,12 @@ public class Menu {
 
     //menu for contact searching, asking for search text, return not checked
     //return text
+
+    /**
+     * Menu for searching contact by any of fields editor
+     * on '0' back to main menu
+     * @return text to find
+     */
     public String searchMenu() {
         System.out.print("Search (press '0' for exit): ");
         input = sc.nextLine();
@@ -185,7 +227,11 @@ public class Menu {
         return input;
     }
 
-    //meu for saving contact book to json file
+    /**
+     * Menu for saving current contact book to json file
+     * on '0' back to main menu
+     * @return contact book name (filename without extension)
+     */
     public String saveMenu() {
         System.out.print("Save contact book as (press '0' for exit): ");
         input = sc.nextLine();
@@ -193,7 +239,11 @@ public class Menu {
         return input.toLowerCase() + ".json";
     }
 
-    //menu for loading contact book from json file
+    /**
+     * Menu for loading contact book from json file, show all exist
+     * on '0' back to main menu
+     * @return contact book index in the showing list as text
+     */
     public String loadMenu() {
         FileOperations fileOperations = new FileOperations();
         List<String> contactBooks = fileOperations.getNamesOfContactBooks();
@@ -214,6 +264,10 @@ public class Menu {
         return contactBookName + ".json";
     }
 
+    /**
+     * return to main menu
+     * @throws NullPointerException
+     */
     public void returnToMainMenu() {
         if (input.equals("0")) {
             throw new NullPointerException();

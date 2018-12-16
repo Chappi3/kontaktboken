@@ -18,10 +18,10 @@ class ContactTest {
     Contact contact = new Contact("Maks", "G", "56576687", "maks@mail.com");
 
     /**
-     *Check if equals() work correct
+     * Check if equals() work correct
      */
     @Test
-    void equals() {
+    void checkEquals() {
         assertTrue(contact.equals(contact));
         assertFalse(contact.equals(null));
         String notThisClass = new String("22");
@@ -34,7 +34,7 @@ class ContactTest {
      * Check if hashCode return right value
      */
     @Test
-    void TestHashCode() {
+    void checkHashCode() {
         int a = java.util.Objects.hash(contact.getEmail());
         int b = contact.hashCode();
         assertEquals(a, b);
@@ -44,7 +44,7 @@ class ContactTest {
      * Testing toString() for Contact
      */
     @Test
-    void TestToString() {
+    void checkToString() {
         String s = "Name: " + contact.getFirstName() + ' ' + contact.getLastName() + '\n' +
                 "Phone: " + contact.getPhoneNumber() + '\n' +
                 "Email: " + contact.getEmail();
@@ -52,53 +52,53 @@ class ContactTest {
     }
 
     /**
-     *Check inserting and getting value from first name
+     * Check inserting and getting value from first name
      */
     @Test
-    void firstNameSetterAndGetter() {
+    void checkFirstNameSetterAndGetter() {
         contact.setFirstName("newMaks");
         assertEquals(contact.getFirstName(), "newMaks");
     }
 
     /**
-     *Check inserting and getting value from last name
+     * Check inserting and getting value from last name
      */
     @Test
-    void lastNameSetterAndGetter() {
+    void checkLastNameSetterAndGetter() {
         contact.setLastName("newG");
         assertEquals(contact.getLastName(), "newG");
     }
 
     /**
-     *Check if get value from phone number
+     * Check if get value from phone number
      */
     @Test
-    void getPhoneNumber() {
+    void checkGetPhoneNumber() {
         assertEquals(contact.getPhoneNumber(), "56576687");
     }
 
     /**
-     *Check if insert value for last name
+     * Check if insert value for last name
      */
     @Test
-    void setPhoneNumber() {
+    void checkSetPhoneNumber() {
         contact.setPhoneNumber("078888");
         assertEquals("078888", contact.getPhoneNumber());
     }
 
     /**
-     *Check if get value from email
+     * Check if get value from email
      */
     @Test
-    void getEmail() {
+    void checkGetEmail() {
         assertEquals(contact.getEmail(), "maks@mail.com");
     }
 
     /**
-     *Check if set value to email
+     * Check if set value to email
      */
     @Test
-    void setEmail() {
+    void checkSetEmail() {
         contact.setEmail("newmaks@mail.com");
         assertEquals("newmaks@mail.com", contact.getEmail());
     }

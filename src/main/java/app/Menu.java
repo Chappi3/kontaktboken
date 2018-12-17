@@ -265,7 +265,7 @@ public class Menu {
 
     /**
      * return to main menu
-     * @throws NullPointerException
+     * @throws NullPointerException if input is "0"
      */
     public void returnToMainMenu() {
         if (input.equals("0")) {

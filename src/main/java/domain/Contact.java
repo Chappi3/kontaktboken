@@ -11,12 +11,6 @@ import java.io.Serializable;
 public class Contact implements Serializable {
     /**
      * Fields
-     *
-     * @param firstName is contact first name
-     * @param lastName is contact last name
-     * @param phoneNumber is contact phone number
-     * @param email is contact email
-     * @param serialVersionUID is uniq number, Serializable interface required
      */
     private String firstName;
     private String lastName;
@@ -26,6 +20,10 @@ public class Contact implements Serializable {
 
     /**
      * Constructor
+     * @param firstName is contact first name
+     * @param lastName is contact last name
+     * @param phoneNumber is contact phone number
+     * @param email is contact email
      */
     public Contact(String firstName, String lastName, String phoneNumber, String email) {
         this.firstName = firstName;
@@ -72,29 +70,66 @@ public class Contact implements Serializable {
     }
 
     /**
-     * Getters and setters, set and collect data for each contact field
+     * Get contact first name
+     * @return first name
      */
     public String getFirstName() {
         return firstName;
     }
+
+    /**
+     * Set value for contact first name
+     *
+     * @param firstName is first name
+     */
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
+
+    /**
+     * Get contact last name
+     * @return last name
+     */
     public String getLastName() {
         return lastName;
     }
+
+    /**
+     * Set value for contact last name
+     * @param lastName is last name
+     */
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+
+    /**
+     * Get contact phone number
+     * @return phone number
+     */
     public String getPhoneNumber() {
         return phoneNumber;
     }
+
+    /**
+     * Set value for contact phone number
+     * @param phoneNumber is phone number
+     */
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
+
+    /**
+     * Get contact email
+     * @return email
+     */
     public String getEmail() {
         return email;
     }
+
+    /**
+     * Set value for contact email
+     * @param email is email
+     */
     public void setEmail(String email) {
         this.email = email;
     }

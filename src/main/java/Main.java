@@ -17,9 +17,9 @@ public class Main {
     /**
      * Start current application
      */
-    public static void main(String[] args) {
+    public static void main() {
         try {
-            start(args);
+            start();
             System.out.println("Exit...");
         } catch (NoSuchElementException e) {
             System.out.println(System.getProperty("line.separator") + "Abrupt exit...");
@@ -29,7 +29,7 @@ public class Main {
     /**
      * Main menu with all possible contact operations
      */
-    public static void start(String[] args) {
+    public static void start() {
         ContactBook contactBook = new ContactBook();
         String contactBookName;
         Menu menu = new Menu();

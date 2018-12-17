@@ -6,6 +6,7 @@ Kontaktboken is a console application to manage contact information. It was made
 * Edit
 * Search
 * Save to json
+* Load from json
 
 ## Quick start
     mvn clean package

@@ -17,6 +17,7 @@ public class Create {
      * values. Then we store the contact in the contactBook.
      *
      * @param contactBook The parameter where we store the contact
+     * @param input This parameter is a string array of values that we use to the contact that is created
      */
     public static void createContact(String[] input, ContactBook contactBook) {
 

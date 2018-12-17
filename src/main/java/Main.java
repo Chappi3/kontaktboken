@@ -82,21 +82,21 @@ public class Main {
                     try {
                         contactBookName = menu.saveMenu();
                         FileOperations.saveToJson(contactBookName, contactBook);
-                        break;
                     } catch (IOException e) {
                         System.out.println("Saving failed, try again");
                     } catch (NullPointerException e) {
                     }
+                    break;
                 case "8":
                     System.out.println("\n --Load contact book--");
                     try {
                         contactBookName = menu.loadMenu();
                         contactBook = FileOperations.loadFromJson(contactBookName);
-                        break;
                     } catch (IOException e) {
                         System.out.println("Loading failed, try again");
                     } catch (NullPointerException e) {
                     }
+                    break;
                 default:
                     continue;
             }

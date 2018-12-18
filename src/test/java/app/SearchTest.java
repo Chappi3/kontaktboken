@@ -81,10 +81,10 @@ class SearchTest {
     @Test
     void CheckIfContactBookIsEmptyOrNot() {
         String testInput = "testing";
-        search.searchName(testInput, contactBook);
-        search.searchLastName(testInput,contactBook);
-        search.searchNumber(testInput,contactBook);
-        search.searchEmail(testInput,contactBook);
+        Search.search(testInput, contactBook);
+        Search.search(testInput,contactBook);
+        Search.search(testInput,contactBook);
+        Search.search(testInput,contactBook);
 
         assertTrue(baos.toString().contains("There are no contacts in the contact book"));
     }

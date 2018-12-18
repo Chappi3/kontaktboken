@@ -54,58 +54,6 @@ class MenuTest {
         assertEquals("Carl Johan Gustav", menu.nameFormatCorrector("caRL joHan gustav"));
     }
 
-//    @Test
-//    void inputFirstName() {
-//        String input = "0";
-//        InputStream in = new ByteArrayInputStream(input.getBytes());
-//        System.setIn(in);
-//        menu.inputFirstName();
-//        assertEquals("0", menu.inputFirstName());
-////        Scanner sc = new Scanner("0");
-////        assertThrows(NullPointerException.class,
-////                ()->{
-////                    menu.inputFirstName();
-////                });
-////        Throwable exception = assertThrows(NullPointerException.class,
-////                ()->{menu.inputFirstName();} );
-//    }
-
-    @Test
-    void inputLastName() {
-    }
-
-    @Test
-    void inputPhoneNumber() {
-    }
-
-    @Test
-    void inputEmail() {
-    }
-
-    @Test
-    void createMenu() {
-    }
-
-    @Test
-    void editMenu() {
-    }
-
-    @Test
-    void deleteMenu() {
-    }
-
-    @Test
-    void searchMenu() {
-    }
-
-    @Test
-    void saveMenu() {
-    }
-
-    @Test
-    void loadMenu() {
-    }
-
     /**
      * Try if method cast NullPointerException on input "0"
      */

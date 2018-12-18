@@ -1,5 +1,5 @@
 public class ShowConflictExample {
     public static void main(String[] args) {
-        System.out.println("TE");
+        System.out.println("TEST2");
     }
 }

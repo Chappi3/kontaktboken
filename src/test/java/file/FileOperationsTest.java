@@ -7,6 +7,8 @@ import org.junit.jupiter.api.Test;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -134,5 +136,20 @@ class FileOperationsTest {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    @Test
+    void testIfGetNamesOfContactBooks() {
+        List<String> expected = new ArrayList<>();
+        File[] files = new File(System.getProperty("user.dir") + File.separator + "samples" + File.separator).listFiles();
+        for (File file : files) {
+            if (file.isFile()) {
+                String f = file.getName();
+                if ((f.substring(f.length() - 5)).equals(".json")) {
+                    expected.add(file.getName().substring(0, f.length() - 5));
+                }
+            }
+        }
+        assertEquals(expected, FileOperations.getNamesOfContactBooks());
     }
 }

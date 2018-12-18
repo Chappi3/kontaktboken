@@ -45,7 +45,7 @@ public class Search {
         for(int i = 0; i < contactBook.getContactBook().size(); i++) {
             contactBook.getContactBook().get(i);
             //This checks every contact and compares the parameters, if equal, then the contact gets printed
-            if(contactBook.getContactBook().get(i).getFirstName().equals(name)) {
+            if(contactBook.getContactBook().get(i).getFirstName().equalsIgnoreCase(name)) {
                 System.out.println("Index: " + (i + 1));
                 System.out.println(contactBook.getContactBook().get(i));
             }
@@ -64,7 +64,7 @@ public class Search {
     public static void searchLastName(String lastName, ContactBook contactBook) {
         for(int i = 0; i < contactBook.getContactBook().size(); i++) {
             contactBook.getContactBook().get(i);
-            if(contactBook.getContactBook().get(i).getLastName().equals(lastName)) {
+            if(contactBook.getContactBook().get(i).getLastName().equalsIgnoreCase(lastName)) {
                 System.out.println("Index: " + (i + 1));
                 System.out.println(contactBook.getContactBook().get(i));
             }
@@ -83,7 +83,7 @@ public class Search {
     public static void searchEmail(String email, ContactBook contactBook) {
         for(int i = 0; i < contactBook.getContactBook().size(); i++) {
             contactBook.getContactBook().get(i);
-            if(contactBook.getContactBook().get(i).getEmail().equals(email)) {
+            if(contactBook.getContactBook().get(i).getEmail().equalsIgnoreCase(email)) {
                 System.out.println("Index: " + (i + 1));
                 System.out.println(contactBook.getContactBook().get(i));
             }

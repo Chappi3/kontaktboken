@@ -10,12 +10,11 @@ public class Validator {
 
     /**
      * check if name contains letters only
-     *
      * @param input get input from user
      * @return true if name is valid, otherwise false
      */
     public static boolean checkName(String input){
-        if (input.toLowerCase().matches("[a-z ]+")) {
+        if (input.toLowerCase().matches("[a-zöäå ]+")) {
             return true;
         }
         System.out.println("...invalid input, text only and start with uppercase, ex('Somename')");

@@ -15,15 +15,20 @@ public class Search {
     /**
      * This method uses a String parameter and compares it to all the methods.
      *
-     * @param find This parameter is the imput from the menu
+     * @param find This parameter is the input from the menu
      * @param contactBook This parameter is the arrayList that we send to all the methods
      */
 
     public static void search(String find, ContactBook contactBook) {
-        searchName(find, contactBook);
-        searchLastName(find, contactBook);
-        searchNumber(find, contactBook);
-        searchEmail(find, contactBook);
+        //Checks if the arrayList is empty or not
+        if(!contactBook.getContactBook().isEmpty()) {
+            searchName(find, contactBook);
+            searchLastName(find, contactBook);
+            searchNumber(find, contactBook);
+            searchEmail(find, contactBook);
+        }else {
+            System.out.println("There are no contacts in the contact book.");
+        }
     }
 
     /**
@@ -35,20 +40,17 @@ public class Search {
      */
 
     public static void searchName(String name, ContactBook contactBook) {
-        //Checks if the arrayList is empty or not
-        if(!contactBook.getContactBook().isEmpty()) {
-            //If the arrayList has a contact then it will loop through the list
-            for(int i = 0; i < contactBook.getContactBook().size(); i++) {
-                contactBook.getContactBook().get(i);
-                //This checks every contact and compares the parameters, if equal, then the contact gets printed
-                if(contactBook.getContactBook().get(i).getFirstName().equals(name)) {
-                    System.out.println("Index: " + (i + 1));
-                    System.out.println(contactBook.getContactBook().get(i));
-                }
+
+        //If the arrayList has a contact then it will loop through the list
+        for(int i = 0; i < contactBook.getContactBook().size(); i++) {
+            contactBook.getContactBook().get(i);
+            //This checks every contact and compares the parameters, if equal, then the contact gets printed
+            if(contactBook.getContactBook().get(i).getFirstName().equalsIgnoreCase(name)) {
+                System.out.println("Index: " + (i + 1));
+                System.out.println(contactBook.getContactBook().get(i));
             }
-        }else {
-            System.out.println("There are no contacts in the contact book");
         }
+
     }
 
     /**
@@ -60,17 +62,14 @@ public class Search {
      */
 
     public static void searchLastName(String lastName, ContactBook contactBook) {
-        if(!contactBook.getContactBook().isEmpty()) {
-            for(int i = 0; i < contactBook.getContactBook().size(); i++) {
-                contactBook.getContactBook().get(i);
-                if(contactBook.getContactBook().get(i).getLastName().equals(lastName)) {
-                    System.out.println("Index: " + (i + 1));
-                    System.out.println(contactBook.getContactBook().get(i));
-                }
+        for(int i = 0; i < contactBook.getContactBook().size(); i++) {
+            contactBook.getContactBook().get(i);
+            if(contactBook.getContactBook().get(i).getLastName().equalsIgnoreCase(lastName)) {
+                System.out.println("Index: " + (i + 1));
+                System.out.println(contactBook.getContactBook().get(i));
             }
-        }else {
-            System.out.println("There are no contacts in the contact book");
         }
+
     }
 
     /**
@@ -82,17 +81,14 @@ public class Search {
      */
 
     public static void searchEmail(String email, ContactBook contactBook) {
-        if(!contactBook.getContactBook().isEmpty()) {
-            for(int i = 0; i < contactBook.getContactBook().size(); i++) {
-                contactBook.getContactBook().get(i);
-                if(contactBook.getContactBook().get(i).getEmail().equals(email)) {
-                    System.out.println("Index: " + (i + 1));
-                    System.out.println(contactBook.getContactBook().get(i));
-                }
+        for(int i = 0; i < contactBook.getContactBook().size(); i++) {
+            contactBook.getContactBook().get(i);
+            if(contactBook.getContactBook().get(i).getEmail().equalsIgnoreCase(email)) {
+                System.out.println("Index: " + (i + 1));
+                System.out.println(contactBook.getContactBook().get(i));
             }
-        }else {
-            System.out.println("There are no contacts in the contact book");
         }
+
     }
 
     /**
@@ -104,17 +100,15 @@ public class Search {
      */
 
     public static void searchNumber(String number, ContactBook contactBook) {
-        if(!contactBook.getContactBook().isEmpty()) {
-            for(int i = 0; i < contactBook.getContactBook().size(); i++) {
-                contactBook.getContactBook().get(i);
-                if(contactBook.getContactBook().get(i).getPhoneNumber().equals(number)) {
-                    System.out.println("Index: " + (i + 1));
-                    System.out.println(contactBook.getContactBook().get(i));
-                }
+
+        for(int i = 0; i < contactBook.getContactBook().size(); i++) {
+            contactBook.getContactBook().get(i);
+            if(contactBook.getContactBook().get(i).getPhoneNumber().equals(number)) {
+                System.out.println("Index: " + (i + 1));
+                System.out.println(contactBook.getContactBook().get(i));
             }
-        }else {
-            System.out.println("There are no contacts in the contact book");
         }
+
     }
 
 }
